@@ -1,21 +1,22 @@
 "use strict";
 
 window.onload = function(){
-
+    
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
-	
-	return str.replace(/A/gi || /a/gi, "#");
+	if (str.length === 0) {
+	throw new Error ("Oops! Har du missat att skriva dit en text?");
+	}
+	var newString = str.replace(/[a-ö]/g,"$&").toUpperCase();
+	//var newString = str.replace(/[a-ö]/g,"$&").toUpperCase() + (/[A-Ö]/g,"$&").toLowerCase();
+	//return str.replace(/A/gi || /a/gi, "#");
+	//return newString;
 	
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
 	
-
-
-
-
-
+    return newString.replace(/A/gi || /a/gi, "#");
 
 	};
 	// ------------------------------------------------------------------------------
@@ -33,7 +34,7 @@ window.onload = function(){
 		p.classList.remove( "error");
 
 		try {
-			var answer = convertString(input.value) // Läser in texten från textrutan och skickar till funktionen "convertString"
+			var answer = convertString(input.value); // Läser in texten från textrutan och skickar till funktionen "convertString"
 			p.innerHTML = answer;		// Skriver ut texten från arrayen som skapats i funktionen.	
 		} catch (error){
 			p.classList.add( "error"); // Växla CSS-klass, IE10+
