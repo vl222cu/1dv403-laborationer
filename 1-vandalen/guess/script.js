@@ -2,22 +2,22 @@
 
 window.onload = function(){
 	
-	var secret = 50; // Detta tal behöver bytas ut mot ett slumpat tal.
+	var secret = Math.floor( Math.random() * 100)+1; // Detta tal behöver bytas ut mot ett slumpat tal.
 	var count = 0; // Räknare som ska hålla reda på hur många gissningar som gjorts.
 	
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var guess = function(number){
 		count++;
                 if (number < 1 || number > 100) {
-                   	return [false, "Talet är utanför intervallet 1 - 100"];
+                    return [false, "Talet är utanför intervallet 1 - 100"];
                 }
                 if (secret > number) {
-                    	return [false, "Det hemliga talet är högre!"];
+                    return [false, "Det hemliga talet är högre!"];
                 }
                 else if (secret < number) {
-                    	return [false, "Det hemliga talet är lägre!"];
+                    return [false, "Det hemliga talet är lägre!"];
                 } else {
-                    	return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + count + " gissningar för att hitta det."];
+                    return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + count + " gissningar för att hitta det."];
                 }		
 	};
 	
