@@ -4,6 +4,9 @@ window.onload = function(){
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
+	
+	return str.replace(/A/gi || /a/gi, "#");
+	
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 

@@ -16,7 +16,8 @@ window.onload = function(){
                 }
                 else if (secret < number) {
                     return [false, "Det hemliga talet är lägre!"];
-                } else {
+                } 
+                else {
                     return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + count + " gissningar för att hitta det."];
                 }		
 	};
