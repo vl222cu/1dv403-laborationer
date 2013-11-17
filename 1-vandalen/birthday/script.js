@@ -4,7 +4,10 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
-                               
+	// Vid felaktig inmatning av datum kastas ett undantag med ett meddelande till användaren.
+    if (date != date.setFullYear) {
+	throw new Error ("Oops! Din inmatning överrenstämmer inte med den rätta formen ÅÅÅÅ-MM-DD, försök igen!"); 
+	}                           
 			// Din kod här.
 
 
