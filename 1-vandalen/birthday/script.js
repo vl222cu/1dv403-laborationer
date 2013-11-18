@@ -4,20 +4,22 @@ window.onload = function(){
 	
 	var birthday = function(date){
 	// Vid felaktig inmatning av datum kastas ett undantag med ett meddelande till användaren.
-    var validformat=/^\d{4}\-\d{2}\-\d{2}$/;    
-    if(!date.match(validformat)) {
+    if(! Date.parse(date.toString())) {
 	throw new Error ("Oops! Din inmatning överrenstämmer inte med den rätta formen ÅÅÅÅ-MM-DD, försök igen!"); 
 	}
-    var splitdate = date.split("-");
-    var mm = splitdate[1] - 1;
-    var dd = splitdate[2];
+    var splitDate = date.split("-");
+    var mm = splitDate[1] - 1;
+    var dd = splitDate[2];
     var now = new Date(); 
-    var bday = new Date();
-    var yy = bday.getFullYear();
-    bday.setDate(dd);
-    bday.setMonth(mm);
-    bday.setFullYear(yy + 1);
-    var result = (Math.floor((bday.getTime() - now) / 86400000));
+    var bDay = new Date();
+    var yy = bDay.getFullYear();
+    bDay.setDate(dd);
+    bDay.setMonth(mm);
+    bDay.setFullYear(yy + 1);
+    var result = (Math.floor((bDay.getTime() - now) / 86400000));
+    if (result>=365) {
+        result=result-365;
+    }
     return result;
 	};
 	// ------------------------------------------------------------------------------
