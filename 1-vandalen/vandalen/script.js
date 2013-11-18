@@ -1,9 +1,14 @@
 "use strict";
 
     var makePerson = function(persArr){
-    var result = {};
+    
+    persArr.sort(function(a, b){
+    return a.age-b.age;
+    });
+    var minAge = persArr[0].age;
     
 	// Din kod här...
+	var result = {minAge: minAge};
 	return result;
     };
 
