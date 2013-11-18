@@ -1,19 +1,24 @@
 "use strict";
 
 window.onload = function(){
-
 	
 	var birthday = function(date){
 	// Vid felaktig inmatning av datum kastas ett undantag med ett meddelande till användaren.
-    var validformat=/^\d{4}\-\d{1,2}\-\d{1,2}$/;    
+    var validformat=/^\d{4}\-\d{2}\-\d{2}$/;    
     if(!date.match(validformat)) {
 	throw new Error ("Oops! Din inmatning överrenstämmer inte med den rätta formen ÅÅÅÅ-MM-DD, försök igen!"); 
-	}                           
-	return "You good!";		// Din kod här.
-    
-
-
-
+	}
+    var splitdate = date.split("-");
+    var mm = splitdate[1] - 1;
+    var dd = splitdate[2];
+    var now = new Date(); 
+    var bday = new Date();
+    var yy = bday.getFullYear();
+    bday.setDate(dd);
+    bday.setMonth(mm);
+    bday.setFullYear(yy + 1);
+    var result = (Math.floor((bday.getTime() - now) / 86400000));
+    return result;
 	};
 	// ------------------------------------------------------------------------------
 
