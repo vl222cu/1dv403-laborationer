@@ -20,12 +20,8 @@
     var maxAge = persArr[0].age;
     
     persArr.sort(function(a, b){
-        var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase();
-        if (nameA < nameB)
-            return -1;
-        if (nameA > nameB)
-            return 1;
-        return 0;
+    var nameA = a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    return nameA ? nameA : a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
     });
     var allNames = "";
     
@@ -33,6 +29,7 @@
         allNames += persArr[i].name + ", ";
     }
     allNames = allNames.trim();
+    allNames = allNames.replace(/(^\s*,)|(,\s*$)/g, "");
     
 	var result = {minAge: minAge, maxAge: maxAge, averageAge : avAge, names: allNames};
 	return result;
