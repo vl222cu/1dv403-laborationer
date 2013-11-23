@@ -11,8 +11,8 @@ window.onload = function(){
                 if (number < 1 || number > 100) {
                     return [false, "Talet är utanför intervallet 1 - 100."];
                 }
-                if (number != isNaN) {
-                    return [false, "Oops! Felaktiga tecken. Försök igen med ett heltal mellan 1-100."];
+                if (isNaN(number)) {
+                    return [false, "OOPS! Det måste vara ett heltal mellan 1 -  100."];
                 }
                 if (secret > number) {
                     return [false, "Det hemliga talet är högre!"];

@@ -14,10 +14,7 @@
     });
     var minAge = persArr[0].age;
     // Sorterar för att få fram maxåldern
-    persArr.sort(function(a, b){
-    return b.age-a.age;
-    });
-    var maxAge = persArr[0].age;
+    var maxAge = persArr[length -1].age;
     // Sorterar namnen i bokstavsordning
     persArr.sort(function(a, b){
     var nameA = a.name.toLowerCase().localeCompare(b.name.toLowerCase());
