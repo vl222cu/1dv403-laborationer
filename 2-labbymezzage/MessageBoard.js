@@ -4,21 +4,24 @@
 
 "use strict";
 
-var messageApp = {
+var MessageBoard = {
     
     init : function() {
-     
-    var mess = new Message("Testmeddelande", new Date());
-    var mess2 = new Message("You good!", new Date());
-    alert(mess);
-    alert(mess2);
-    alert(mess2.getText());
-    mess.setText("Moment 2 är klar!");
-    alert(mess);
+    // Array för att hålla en lista med flera messageobjekt
+    // Testat olika metoder för arrays
+    var messages = ["soccer", "baseboll"];
+    messages.push("Football", "swimming");
+    messages.unshift("Cricket");
+    var shifted = messages.pop();
     
-    // kod objektliteral ska in här
+    alert(shifted);
+   
+  
+    
+    
+    
     
     }
 };
 
-window.onload = messageApp.init;
+window.onload = MessageBoard.init;
