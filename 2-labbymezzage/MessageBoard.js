@@ -14,7 +14,7 @@ var MessageBoard = {
     messages.unshift("Cricket");
     var shifted = messages.pop();
     
-    alert(shifted);
+ 
    
   
     
