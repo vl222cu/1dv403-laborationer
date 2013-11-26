@@ -4,24 +4,27 @@
 
 "use strict";
 
-var MessageBoard = {
-    
-    init : function() {
+    var MessageBoard = {
     // Array för att hålla en lista med flera messageobjekt
     // Testat olika metoder för arrays
-    var messages = ["soccer", "baseboll"];
-    messages.push("Football", "swimming");
-    messages.unshift("Cricket");
-    var shifted = messages.pop();
+    messages: [],
+    messageCount : 0,
     
- 
-   
-  
+    init : function() {
+        this.messageCount++;
+        this.messages.push(new Message(message, new Date()));
     
     
     
-    
+        }
+    };
+
+    var input = document.getElementById("comment");
+	
+	var reply_click = function(e) {
+    e.preventDefault();
+    var textMessage = MessageBoard.init(input.value);
     }
-};
+    document.getElementById("button").onclick = reply_click;
 
 window.onload = MessageBoard.init;
