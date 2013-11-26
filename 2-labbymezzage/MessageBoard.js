@@ -10,12 +10,12 @@
     messages: [],
     messageCount : 0,
     
-    init : function() {
-        this.messageCount++;
-        this.messages.push(new Message(message, new Date()));
-    
-    
-    
+    init : function(message) {
+        
+        var mess = new Message(message, new Date());
+        this.messages.push(mess);
+        
+        
         }
     };
 
@@ -24,7 +24,7 @@
 	var reply_click = function(e) {
     e.preventDefault();
     var textMessage = MessageBoard.init(input.value);
-    }
+    };
     document.getElementById("button").onclick = reply_click;
 
 window.onload = MessageBoard.init;
