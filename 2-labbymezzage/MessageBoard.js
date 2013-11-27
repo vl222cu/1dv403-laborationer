@@ -7,16 +7,23 @@
     var MessageBoard = {
     // Array för att hålla en lista med flera messageobjekt
     // Testat olika metoder för arrays
-    messages: [],
-    messageCount : 0,
+        messages: [],
     
-    init : function(message) {
+        init : function(message) {
         
-        var mess = new Message(message, new Date());
-        this.messages.push(mess);
+            var mess = new Message(message, new Date().toDateString());
+            this.messages.push(mess);
+            },
         
-        
-        }
+        renderMessages : function() {
+            // Raderar alla meddelanden
+            document.getElementById("textfield").innerHTML= "";
+            
+            // Skriver ut samtliga meddelanden
+            for (var i = 0; i < MessageBoard.messages.length; ++i) {
+                MessageBoard.renderMessage(i);
+            }
+        },
     };
 
     var input = document.getElementById("comment");
