@@ -9,29 +9,44 @@
     // Testat olika metoder för arrays
         messages: [],
     
-        init : function(message) {
-        
-            var mess = new Message(message, new Date().toDateString());
-            this.messages.push(mess);
-            },
+        init : function() {
+            document.getElementById("button").onclick = function GetMessage(e) {
+                e.preventDefault();
+                var text = document.getElementById("text").value;
+                var mess = new Message(text, new Date().toDateString());
+                MessageBoard.messages.push(mess);
+                MessageBoard.renderMessages();
+            };
+        },
         
         renderMessages : function() {
             // Raderar alla meddelanden
-            document.getElementById("textfield").innerHTML= "";
+            document.getElementById("posted").innerHTML= "";
             
             // Skriver ut samtliga meddelanden
             for (var i = 0; i < MessageBoard.messages.length; ++i) {
                 MessageBoard.renderMessage(i);
             }
         },
+        
+        renderMessage : function(messageID) {
+            var div = document.getElementById("posted"); 
+            var text = document.createElement("div");
+            var p = document.createElement("p");
+            text.className = "postmessage";
+            p.className = "input";
+            p.innerHTML = MessageBoard.messages[messageID].getText();
+            div.appendChild(text);
+            text.appendChild(p);
+        },
     };
 
-    var input = document.getElementById("comment");
+    //var input = document.getElementById("comment");
 	
-	var reply_click = function(e) {
-    e.preventDefault();
-    var textMessage = MessageBoard.init(input.value);
-    };
-    document.getElementById("button").onclick = reply_click;
+	//var reply_click = function(e) {
+    //e.preventDefault();
+    //var textMessage = MessageBoard.init(input.value);
+    //};
+    //document.getElementById("button").onclick = reply_click;
 
 window.onload = MessageBoard.init;
