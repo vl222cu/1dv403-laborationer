@@ -14,7 +14,7 @@
             press.addEventListener("click", function GetMessage(e) {
                 e.preventDefault();
                 var text = document.getElementById("text").value;
-                var mess = new Message(text, new Date().toDateString());
+                var mess = new Message(text, new Date());
                 MessageBoard.messages.push(mess);
                 MessageBoard.renderMessages();
             }, false);
@@ -28,6 +28,10 @@
             for (var i = 0; i < MessageBoard.messages.length; ++i) {
                 MessageBoard.renderMessage(i);
             }
+            
+            var counter = document.getElementById("messagecount");
+            var number = (MessageBoard.messages.length);
+            counter.innerHTML = number;
         },
         
         renderMessage : function(messageID) {
