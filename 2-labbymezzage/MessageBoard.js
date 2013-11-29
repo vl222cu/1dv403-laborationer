@@ -10,13 +10,14 @@
         messages: [],
     
         init : function() {
-            document.getElementById("button").onclick = function GetMessage(e) {
+            var press = document.getElementById("button"); 
+            press.addEventListener("click", function GetMessage(e) {
                 e.preventDefault();
                 var text = document.getElementById("text").value;
                 var mess = new Message(text, new Date().toDateString());
                 MessageBoard.messages.push(mess);
                 MessageBoard.renderMessages();
-            };
+            }, false);
         },
         
         renderMessages : function() {
