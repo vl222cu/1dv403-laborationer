@@ -40,18 +40,26 @@
             var p = document.createElement("p");
             text.className = "postmessage";
             p.className = "input";
-            p.innerHTML = MessageBoard.messages[messageID].getText();
+            p.innerHTML = MessageBoard.messages[messageID].getHTMLText();
             div.appendChild(text);
             text.appendChild(p);
+            
+            var a = document.createElement("a");
+            var imgClose = document.createElement("img");
+            imgClose.className = "deletebutton";
+            imgClose.setAttribute("src", "pics/delete16.png");
+            imgClose.alt="Close";
+            text.appendChild(a);
+            a.appendChild(imgClose);
+            
+            // Raderar meddelande genom att trycka på deleteknappen
+            imgClose.onclick = function() {
+                MessageBoard.removeMessage(messageID);
+            };
         },
+        
+        removeMessage : function() {
+            
+        }
     };
-
-    //var input = document.getElementById("comment");
-	
-	//var reply_click = function(e) {
-    //e.preventDefault();
-    //var textMessage = MessageBoard.init(input.value);
-    //};
-    //document.getElementById("button").onclick = reply_click;
-
 window.onload = MessageBoard.init;
