@@ -58,8 +58,9 @@
             };
         },
         
-        removeMessage : function() {
-            
+        removeMessage : function(deleteMess) {
+            MessageBoard.messages.splice(deleteMess, 1);
+            MessageBoard.renderMessages();
         }
     };
 window.onload = MessageBoard.init;
