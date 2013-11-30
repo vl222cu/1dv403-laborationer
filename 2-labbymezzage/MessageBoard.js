@@ -40,10 +40,13 @@
             var p = document.createElement("p");
             text.className = "postmessage";
             p.className = "input";
+            text.innerHTML = MessageBoard.messages[messageID].getDatetext().toLocaleTimeString();
             p.innerHTML = MessageBoard.messages[messageID].getHTMLText();
             div.appendChild(text);
             text.appendChild(p);
             
+            
+            // Skapar och lägger till deleteknappen
             var a = document.createElement("a");
             var imgClose = document.createElement("img");
             imgClose.className = "deletebutton";
