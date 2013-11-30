@@ -45,13 +45,26 @@
             div.appendChild(text);
             text.appendChild(p);
             
+            // Skapar och lägger till tidsstämpeln för meddelandet
+            var time = document.createElement("a");
+            var imgDateTime = document.createElement("img");
+            imgDateTime.className = "datetime";
+            imgDateTime.setAttribute("src", "pics/alarm16.png");
+            imgDateTime.alt = "ShowDateTime";
+            text.appendChild(time);
+            time.appendChild(imgDateTime);
+            
+            imgDateTime.onclick = function() {
+                alert ("Inlägget skapades " + MessageBoard.messages[messageID].getDatetext().toLocaleDateString() +
+                " klockan " + MessageBoard.messages[messageID].getDatetext().toLocaleTimeString());
+            };
             
             // Skapar och lägger till deleteknappen
             var a = document.createElement("a");
             var imgClose = document.createElement("img");
             imgClose.className = "deletebutton";
             imgClose.setAttribute("src", "pics/delete16.png");
-            imgClose.alt="Close";
+            imgClose.alt = "Close";
             text.appendChild(a);
             a.appendChild(imgClose);
             
