@@ -60,25 +60,25 @@
         },
         
         renderMessage : function(messageID) {
-            var div = document.getElementById("posted"); 
+            // Skapar nytt element för meddelandet
             var text = document.createElement("div");
             var p = document.createElement("p");
             text.className = "postmessage";
             p.className = "input";
-            text.innerHTML = MessageBoard.messages[messageID].getDatetext().toLocaleTimeString();
-            p.innerHTML = MessageBoard.messages[messageID].getHTMLText();
-            div.appendChild(text);
-            text.appendChild(p);
             
-            // Skapar och lägger till tidsstämpeln för meddelandet
+            // Skapar nytt element för ikonerna
+            var msgIcon = document.createElement("span");
+            msgIcon.className = "icons";
+            
+            // Skapar och lägger till klockknappen 
             var time = document.createElement("a");
             var imgDateTime = document.createElement("img");
             imgDateTime.className = "datetime";
             imgDateTime.setAttribute("src", "pics/alarm16.png");
             imgDateTime.alt = "ShowDateTime";
-            text.appendChild(time);
-            time.appendChild(imgDateTime);
             
+            // Visar datum och tid när meddelandet skickades genom att trycka
+            // på klockknappen
             imgDateTime.onclick = function() {
                 alert ("Inlägget skapades " + MessageBoard.messages[messageID].getDatetext().toLocaleDateString() +
                 " klockan " + MessageBoard.messages[messageID].getDatetext().toLocaleTimeString());
@@ -90,8 +90,6 @@
             imgClose.className = "deletebutton";
             imgClose.setAttribute("src", "pics/delete16.png");
             imgClose.alt = "Close";
-            text.appendChild(a);
-            a.appendChild(imgClose);
             
             // Möjlighet att radera meddelande genom att trycka på deleteknappen
             imgClose.onclick = function() {
@@ -100,8 +98,31 @@
                     MessageBoard.removeMessage(messageID);
                 }
             };
+            
+            // Kopplar ihop ikonerna med span-elementet
+            msgIcon.appendChild(time);
+            time.appendChild(imgDateTime);
+            msgIcon.appendChild(a);
+            a.appendChild(imgClose);
+            
+            // Skriver ut meddelandetexten
+            p.innerHTML = MessageBoard.messages[messageID].getHTMLText();
+            
+            // Skriver ut tiden när meddelandet skapades
+            var msgTime = document.createElement("p");
+            msgTime.className = "date";
+            msgTime.innerHTML = MessageBoard.messages[messageID].getDatetext().toLocaleTimeString();
+            
+            // Lägger till ikoner och meddelandetexten i nya elementet för meddelanden
+            text.appendChild(msgIcon);
+            text.appendChild(p);
+            text.appendChild(msgTime);
+            
+            // Lägger till elementet för meddelanden i HTML-filen
+            document.getElementById("posted").appendChild(text);
         },
         
+        // Funktion som raderar det valda meddelandet
         removeMessage : function(deleteMess) {
             MessageBoard.messages.splice(deleteMess, 1);
             MessageBoard.renderMessages();
