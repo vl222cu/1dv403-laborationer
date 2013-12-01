@@ -5,8 +5,8 @@
 "use strict";
 
     var MessageBoard = {
-    // Array för att hålla en lista med flera messageobjekt
-    // Testat olika metoder för arrays
+        // Array för att hålla en lista med flera messageobjekt
+        // Testat olika metoder för arrays
         messages: [],
     
         init : function() {
@@ -19,8 +19,29 @@
                 MessageBoard.renderMessages();
             }, false);
             
-            document.textarea.onkeypress = function(e) {
-                if (!e) var eventhandler = window.event;
+            // Händelsehanterare som ser till att användaren kan 
+            // skicka meddelanden genom att trycka på entertangenten
+            document.getElementById("text").onkeypress = function(e) {
+                var code;
+                if (!e) {
+                    e = window.event; 
+                }
+                if (e.keyCode) {
+                    code = e.keyCode;
+                } else if (e.which) {
+                    code = e.which;
+                }
+                
+                if (e.shiftKey && code === 13) {
+                    document.textarea.value += "\n";
+                    return false;
+                } else if (code === 13) {
+                    var text = document.getElementById("text").value;
+                    var mess = new Message(text, new Date());
+                    MessageBoard.messages.push(mess);
+                    MessageBoard.renderMessages();
+                    return false;
+                }
             };
         },
         
