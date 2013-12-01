@@ -10,14 +10,14 @@
         messages: [],
     
         init : function() {
-            document.getElementById("button").onclick = function GetMessage(e) {
+            document.getElementById("button").onclick = function getMessage(e) {
                 e.preventDefault();
                 var text = document.getElementById("text").value;
+                document.getElementById("text").value = "";
                 var mess = new Message(text, new Date());
                 MessageBoard.messages.push(mess);
                 MessageBoard.renderMessages();
             };
-            
             // Händelsehanterare som ser till att användaren kan 
             // skicka meddelanden genom att trycka på entertangenten
             document.getElementById("text").onkeypress = function(e) {
@@ -36,6 +36,7 @@
                     return false;
                 } else if (code === 13) {
                     var text = document.getElementById("text").value;
+                    document.getElementById("text").value = "";
                     var mess = new Message(text, new Date());
                     MessageBoard.messages.push(mess);
                     MessageBoard.renderMessages();
@@ -52,7 +53,7 @@
             for (var i = 0; i < MessageBoard.messages.length; ++i) {
                 MessageBoard.renderMessage(i);
             }
-            
+            // Räknare som håller koll på antal meddelanden
             var counter = document.getElementById("messagecount");
             var number = (MessageBoard.messages.length);
             counter.innerHTML = number;
@@ -98,7 +99,7 @@
                 }
             };
             
-            // Kopplar ihop ikonerna med span-elementet
+            // Kopplar ihop ikonknapparna med det nyskapta elementet för ikonerna
             msgIcon.appendChild(time);
             time.appendChild(imgDateTime);
             msgIcon.appendChild(a);
