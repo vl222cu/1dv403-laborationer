@@ -10,14 +10,13 @@
         messages: [],
     
         init : function() {
-            var press = document.getElementById("button"); 
-            press.addEventListener("click", function GetMessage(e) {
+            document.getElementById("button").onclick = function GetMessage(e) {
                 e.preventDefault();
                 var text = document.getElementById("text").value;
                 var mess = new Message(text, new Date());
                 MessageBoard.messages.push(mess);
                 MessageBoard.renderMessages();
-            }, false);
+            };
             
             // Händelsehanterare som ser till att användaren kan 
             // skicka meddelanden genom att trycka på entertangenten
