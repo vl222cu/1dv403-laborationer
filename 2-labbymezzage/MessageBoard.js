@@ -93,9 +93,12 @@
             text.appendChild(a);
             a.appendChild(imgClose);
             
-            // Raderar meddelande genom att trycka på deleteknappen
+            // Möjlighet att radera meddelande genom att trycka på deleteknappen
             imgClose.onclick = function() {
-                MessageBoard.removeMessage(messageID);
+                var result = confirm("Vill du verkligen radera detta meddelande?");
+                if (result === true) {
+                    MessageBoard.removeMessage(messageID);
+                }
             };
         },
         
