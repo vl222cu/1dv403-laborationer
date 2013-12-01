@@ -18,6 +18,10 @@
                 MessageBoard.messages.push(mess);
                 MessageBoard.renderMessages();
             }, false);
+            
+            document.textarea.onkeypress = function(e) {
+                if (!e) var eventhandler = window.event;
+            };
         },
         
         renderMessages : function() {
