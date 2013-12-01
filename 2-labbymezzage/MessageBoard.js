@@ -110,7 +110,7 @@
             
             // Skriver ut tiden när meddelandet skapades
             var msgTime = document.createElement("p");
-            msgTime.className = "date";
+            msgTime.className = "time";
             msgTime.innerHTML = MessageBoard.messages[messageID].getDatetext().toLocaleTimeString();
             
             // Lägger till ikoner och meddelandetexten i nya elementet för meddelanden

@@ -234,5 +234,22 @@ h1 {
     /*-webkit-background-clip: padding-box;*/
 } 
 
+.icons {
+    margin-left: 455px;
+}
 
+.deletebutton {
+    margin-top: 5px;
+}
 
+.datetime {
+    margin-top: 5px;
+    padding-right: 2px;
+}
+
+.time {
+    margin-bottom: -4px;
+    margin-left: 445px;
+    font-family: "Verdana", "Arial", sans-serif;
+    font-size: 8px;
+}
