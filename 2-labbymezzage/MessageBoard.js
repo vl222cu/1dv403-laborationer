@@ -80,7 +80,7 @@
             // Visar datum och tid när meddelandet skickades genom att trycka
             // på klockknappen
             imgDateTime.onclick = function() {
-                alert ("Inlägget skapades " + MessageBoard.messages[messageID].getDatetext().toLocaleDateString() +
+                alert("Inlägget skapades " + MessageBoard.messages[messageID].getDatetext().toLocaleDateString() +
                 " klockan " + MessageBoard.messages[messageID].getDatetext().toLocaleTimeString());
             };
             
