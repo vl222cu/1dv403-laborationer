@@ -1,0 +1,22 @@
+#container {
+    width: 960px;
+    margin: auto;
+    text-align: center;
+}
+
+table
+{
+border-collapse:collapse;
+margin-left: 360px;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    padding: 30px;
+}
+
+h1 {
+    font-family: "Happy Monkey", "Arial", sans-serif;
+    color: #000;
+    text-shadow: 2px 2px 0 rgb(230,71,185);
+}
