@@ -1,15 +1,17 @@
 "use strict";
-
+var rows = 4;
+var cols = 4;
 
 var Memory = {
     // Egenskap för att spara resultatet från den utslumpade getPictureArrayen
     tiles: [],
     // Egenskap för att hålla så att det endast går att vända två brickor
     pairs: [],
+    trackTries : 0,
+    trackPairs : 0,
     
     init : function() {
-        var rows = 4;
-        var cols = 4;
+        
         var pic = 0;
         var table = document.getElementById("gametable");
         
@@ -59,10 +61,18 @@ var Memory = {
         if (close[0].getElementsByTagName("img")[0].src === 
         close[1].getElementsByTagName("img")[0].src) {
         Memory.pairs = [];
+        Memory.trackPairs+=1;
         } else {
         close[0].getElementsByTagName("img")[0].setAttribute("src", "../pics/0.png");
         close[1].getElementsByTagName("img")[0].setAttribute("src", "../pics/0.png");
         Memory.pairs = [];
+        Memory.trackTries+=1;
+        }
+        if (Memory.trackPairs === (rows * cols / 2)) {
+            var result = confirm("Grattis! Du lyckades på " + (Memory.trackTries + Memory.trackPairs) + " försök! \nVill du spela en runda till? Klicka på OK!");
+            if (result === true) {
+                window.onload = Memory.init;
+            }
         }
     }
 };
