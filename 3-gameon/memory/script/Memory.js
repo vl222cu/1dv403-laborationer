@@ -33,20 +33,30 @@ var Memory = {
                 
                 // Anropar onclickmetoden
                 Memory.flipTile(pic, a);
+                pic++;
             }
         }
     },   
     
     flipTile: function(pic, a) {
         a.onclick = function() {
-        
         Memory.pairs.push(a);
+        // Begränsar till att endast två brickor kan öppnas
         if (Memory.pairs.length < 3) {
             this.getElementsByTagName("img")[0].setAttribute("src", "../pics/" + Memory.tiles[pic] + ".png");
         } 
-        
+        if (Memory.pairs.length === 2) {
+            setTimeout(function() {
+                Memory.closeTile(Memory.pairs);
+            }, 1000);
+        }
     };
-}
-
+},
+    // Vänder brickorna efter 1 sek    
+    closeTile : function (close) {
+        close[0].getElementsByTagName("img")[0].setAttribute("src", "../pics/0.png");
+        close[1].getElementsByTagName("img")[0].setAttribute("src", "../pics/0.png");
+        Memory.pairs = [];
+    }
 };
 window.onload = Memory.init;
