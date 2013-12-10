@@ -71,7 +71,7 @@ var Memory = {
         if (Memory.trackPairs === (rows * cols / 2)) {
             var result = confirm("Grattis! Du lyckades på " + (Memory.trackTries + Memory.trackPairs) + " försök! \nVill du spela en runda till? Klicka på OK!");
             if (result === true) {
-                window.onload = Memory.init;
+                window.location.reload();
             }
         }
     }
