@@ -1,5 +1,5 @@
 body {
-    background: url("../pics/Winter_Background.jpg");
+    background: url("../pics/snow.jpg");
     background-size: 100%;
 }
 
@@ -23,8 +23,8 @@ header {
 h1 {
     font-family: "Happy Monkey", "Arial", sans-serif;
     font-size: 50px;
-    color: #BBB;
-    text-shadow: 2px 2px 0 rgb(230,71,185);
+    color: #0B57B0;
+    text-shadow: 3px 3px 3px #606676;
 }
 
 table {
