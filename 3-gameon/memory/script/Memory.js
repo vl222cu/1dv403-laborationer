@@ -27,6 +27,7 @@ var Memory = {
                 // Kapslar in varje bild i en a-länk
                 var image = document.createElement("img");
                 var a = document.createElement("a");
+                a.setAttribute("href", "#");
                 a.id = "startimg";
                 image.setAttribute("src", "../pics/0.png");
                 image.alt = "hidden";
@@ -39,7 +40,7 @@ var Memory = {
             }
         }
     },   
-    
+    // Styr vändning av brickor
     flipTile: function(pic, a) {
         a.onclick = function() {
             // Villkor som håller att inga brickor än startimg går att klicka på
@@ -47,11 +48,11 @@ var Memory = {
                 return false;
             }
             Memory.pairs.push(a);
-            // Begränsar till att endast två brickor kan öppnas
+            // Begränsar till att endast två brickor kan vändas
             if (Memory.pairs.length < 3) {
                 this.getElementsByTagName("img")[0].setAttribute("src", "../pics/" + Memory.tiles[pic] + ".png");
             } 
-            // När två brickor är öppnade skickas de för kontroll 
+            // När två brickor är uppvända skickas de för kontroll 
             if (Memory.pairs.length === 2) {
                 setTimeout(function() {
                     Memory.closeTile(Memory.pairs);
