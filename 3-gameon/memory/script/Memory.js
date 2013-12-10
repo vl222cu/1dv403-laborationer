@@ -1,6 +1,5 @@
 "use strict";
-var rows = 4;
-var cols = 4;
+
 
 var Memory = {
     // Egenskap för att spara resultatet från den utslumpade getPictureArrayen
@@ -9,7 +8,8 @@ var Memory = {
     pairs: [],
     
     init : function() {
-        
+        var rows = 4;
+        var cols = 4;
         var pic = 0;
         var table = document.getElementById("gametable");
         
@@ -54,9 +54,16 @@ var Memory = {
 },
     // Vänder brickorna efter 1 sek    
     closeTile : function (close) {
+        
+        
+        if (close[0].getElementsByTagName("img")[0].src === 
+        close[1].getElementsByTagName("img")[0].src) {
+        Memory.pairs = [];
+        } else {
         close[0].getElementsByTagName("img")[0].setAttribute("src", "../pics/0.png");
         close[1].getElementsByTagName("img")[0].setAttribute("src", "../pics/0.png");
         Memory.pairs = [];
+        }
     }
 };
 window.onload = Memory.init;
