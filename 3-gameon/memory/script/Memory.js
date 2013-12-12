@@ -44,10 +44,8 @@ var Memory = {
     flipTile: function(pic, a) {
         a.onclick = function() {
             // Villkor som håller att inga brickor än startimg går att klicka på
-            if (this.getElementsByTagName("img")[0].getAttribute("src") !== "../pics/0.png") {
-                return false;
-            }
-            Memory.pairs.push(a);
+            if (this.getElementsByTagName("img")[0].getAttribute("src") === "../pics/0.png") {
+                Memory.pairs.push(a);
             // Begränsar till att endast två brickor kan vändas
             if (Memory.pairs.length < 3) {
                 this.getElementsByTagName("img")[0].setAttribute("src", "../pics/" + Memory.tiles[pic] + ".png");
@@ -58,8 +56,9 @@ var Memory = {
                     Memory.closeTile(Memory.pairs);
                 }, 1000);
             }
-        };
-    },
+        }
+    };
+},
     // Styr om brickorna ska vändas eller vara öppna   
     closeTile : function (close) {
         if (close[0].getElementsByTagName("img")[0].src === close[1].getElementsByTagName("img")[0].src) {
@@ -73,11 +72,14 @@ var Memory = {
             }
         // Kontrollerar om memoryt är färdigspelat och möjlighet till ny omgång    
         if (Memory.trackPairs === (rows * cols / 2)) {
-            var result = confirm("Grattis! Du lyckades på " + (Memory.trackTries + Memory.trackPairs) 
-            + " försök! \nVill du spela en runda till? Klicka på OK!");
-            if (result === true) {
+            var text = document.getElementById("text");
+            var result = "Grattis! Du lyckades på " + (Memory.trackTries + Memory.trackPairs) + " försök!";
+            text.innerHTML = result;
+            
+            // Startar om spel
+            document.getElementById("button").onclick = function() {
                 window.location.reload();
-            }
+            };
         }
     }
 };
