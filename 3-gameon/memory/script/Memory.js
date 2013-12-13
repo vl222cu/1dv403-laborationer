@@ -39,6 +39,10 @@ var Memory = {
                 pic++;
             }
         }
+        // Möjlighet att starta om spel
+        document.getElementById("button").onclick = function() {
+                window.location.reload();
+            };
     },   
     // Styr vändning av brickor
     flipTile: function(pic, a) {
@@ -70,16 +74,11 @@ var Memory = {
                 Memory.pairs = [];
                 Memory.trackTries+=1;
             }
-        // Kontrollerar om memoryt är färdigspelat och möjlighet till ny omgång    
+        // Kontrollerar om memoryt är färdigspelat   
         if (Memory.trackPairs === (rows * cols / 2)) {
             var text = document.getElementById("text");
             var result = "Grattis! Du lyckades på " + (Memory.trackTries + Memory.trackPairs) + " försök!";
             text.innerHTML = result;
-            
-            // Startar om spel
-            document.getElementById("button").onclick = function() {
-                window.location.reload();
-            };
         }
     }
 };
