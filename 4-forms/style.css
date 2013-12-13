@@ -1,0 +1,84 @@
+#container {
+    width: 960px;
+    margin: 30px 100px 30px 500px;
+}
+
+h1 {
+    font-family: "Verdana", "Arial", sans-serif;
+    text-align: left;
+}
+
+input {   
+    width: 300px;
+    padding: 7px;  
+    border: solid 1px #EEE;  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.03, #DDD), color-stop(1, #FFF)); 
+    background: -webkit-linear-gradient(top, #DDD 30%, #FFF 100%);
+    background: -moz-linear-gradient(top, #DDD 30%, #FFF 100%);
+    background: -o-linear-gradient(top, #DDD 30%, #FFF 100%);
+	background: linear-gradient(top, #DDD 30%, #FFF 100%);
+	-moz-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;
+    box-shadow: rgba(0,0,0, 0.3) 0 0 8px; 
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    border-radius: 5px;
+    font-family: "Verdana", "Arial", sans-serif;
+}
+
+select {
+    width: 150px;
+    padding: 5px;  
+    border: solid 1px #EEE;  
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.03, #DDD), color-stop(1, #FFF)); 
+    background: -webkit-linear-gradient(top, #DDD 30%, #FFF 100%);
+    background: -moz-linear-gradient(top, #DDD 30%, #FFF 100%);
+    background: -o-linear-gradient(top, #DDD 30%, #FFF 100%);
+	background: linear-gradient(top, #DDD 30%, #FFF 100%);
+	-moz-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;
+    box-shadow: rgba(0,0,0, 0.3) 0 0 8px; 
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    border-radius: 5px;
+    font-family: "Verdana", "Arial", sans-serif;
+}
+
+.price select {
+      border: 0;  /*Removes border*/
+     -webkit-appearance: none;  /*Removes default chrome and safari style*/
+     -moz-appearance: none;  /*Removes default style Firefox*/
+}
+
+input:hover, input:focus {   
+    border-color: #BBB; 
+    -moz-box-shadow: rgba(0,0,0, 0.15) 0 0 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.15) 0 0 8px;
+    box-shadow: rgba(0,0,0, 0.15) 0 0 8px; 
+} 
+
+.form label 
+{   
+    margin-left: 10px;   
+    color: #676B6B;   
+    font-family: "Verdana", "Arial", sans-serif;
+}
+
+button {
+    margin-top: 40px;
+    padding: 3px;
+    font-family: "Verdana", "Arial", sans-serif;
+    font-size: 11px;
+    color: #FFF;
+	-moz-box-shadow: 0 0 4px 0 #777;
+	-webkit-box-shadow: 0 0 4px 0 #777;
+	box-shadow: 0 0 4px 0 #777;
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    border-radius: 5px;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #263966), color-stop(1, #79bbff) );
+	background: -webkit-linear-gradient(top, #263966 5%, #79bbff 100%);
+	background:-moz-linear-gradient( center top, #263966 5%, #79bbff 100% );
+	background: -o-linear-gradient(top, #263966 5%, #79bbff 100%);
+	background: linear-gradient(top, #263966 5%, #79bbff 100%);
+}

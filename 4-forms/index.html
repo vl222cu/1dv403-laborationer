@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+	<meta charset="UTF-8" />
+ 	<title>Validering</title>
+ 	<link rel="stylesheet" href="style.css" media="screen">
+ 	<link href='//fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
+ 	
+</head>
+
+    <body>
+    <div id="container">
+    <header>
+        <h1>Fyll i din betalningsplan</h1>
+    </header>
+    
+        <form class="form" name="form" method="post" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
+            
+            <p><label for="forname">Förnamn:</label></p>
+            <p><input type="text" name="forname" id="fnamn" /></p>
+            
+            <p><label for="lastname">Efternamn:</label></p>
+            <p><input type="text" name="lastname" id="enamn" /></p>
+            
+            <p><label for="no">Postnummer:</label></p>
+            <p><input type="text" name="postalcode" id="postal" /></p>
+            
+            <p><label for="epost">E-postadress:</label></p>
+            <p><input type="text" name="epost" id="epost" /></p>
+            
+            <p><label for="select">Prismodell:</label></p>
+            <p><select name="price" id="price">
+            <option value="low"> Låg </option>
+            <option value="mid"> Mellan </option>
+            <option value="high"> Hög </option>
+            </select></p>
+            
+            <p><button type="submit">Genomför köp</button></p>
+            
+        </form>
+    </div>
+    </body>
+    
+</html>
