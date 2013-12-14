@@ -14,19 +14,19 @@
         <h1>Fyll i din betalningsplan</h1>
     </header>
     
-        <form class="form" name="form" method="post" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
+        <form class="form" name="myForm" method="post" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
             
             <p><label for="forname">Förnamn:</label></p>
-            <p><input type="text" name="forname" id="fnamn" /></p>
+            <p><input type="text" name="forname" id="forname" /><span id="fnameprompt"></span></p>
             
             <p><label for="lastname">Efternamn:</label></p>
-            <p><input type="text" name="lastname" id="enamn" /></p>
+            <p><input type="text" name="lastname" id="lastname" /><span id="lnameprompt"></p>
             
             <p><label for="no">Postnummer:</label></p>
-            <p><input type="text" name="postalcode" id="postal" /></p>
+            <p><input type="text" name="postalcode" id="postal" /><span id="postalprompt"></span></p>
             
             <p><label for="epost">E-postadress:</label></p>
-            <p><input type="text" name="epost" id="epost" /></p>
+            <p><input type="text" name="epost" id="epost" /><span id="epostprompt"></p>
             
             <p><label for="select">Prismodell:</label></p>
             <p><select name="price" id="price">
@@ -35,10 +35,11 @@
             <option value="high"> Hög </option>
             </select></p>
             
-            <p><button type="submit">Genomför köp</button></p>
+        <!--    <p><button id="button" onsubmit='return formValidator()'>Genomför köp</button></p> -->
             
         </form>
     </div>
+    <script src="validator.js"></script>
     </body>
     
 </html>
