@@ -42,6 +42,7 @@ var Validator = {
         postal.onkeyup = validatePostal;
         epost.onkeyup = validateEmail;
         form.onsubmit = validateForm;
+
         
         // Validering för förnamnsfältet
         function validateName() {
@@ -121,11 +122,34 @@ var Validator = {
         
         // Anrop vid onsubmit för validering av alla fält innan info skickas till servern
         function validateForm() {
-            if (validateName() && validateLastName() && validatePostal() && validateEmail()) {
-                return true;
-            } 
-            return false;
-        }
+            if (!validateName() || !validateLastName() || !validatePostal() || !validateEmail()) {
+                return false;
+            }
+        
+            var div = document.createElement("div");
+            div.className = "background";
+            var modalDiv = document.createElement("div");
+            modalDiv.className = "modal";
+            var buttonOk = document.createElement("button");
+            buttonOk.textContent = "Bekräfta ditt köp";
+            var buttonNo = document.createElement("button");
+            buttonNo.textContent = "Avbryt";
+            
+            modalDiv.appendChild(buttonNo);
+            modalDiv.appendChild(buttonOk);
+            div.appendChild(modalDiv);
+            document.body.appendChild(div);
+            
+            buttonOk.onclick = function() {
+                form.submit();
+            };
+            
+            buttonNo.onclick = function() {
+                modalDiv.close();
+            };
+            return true;
+        }     
+        
     }
 };
 window.onload = Validator.init;
