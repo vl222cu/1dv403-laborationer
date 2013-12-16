@@ -41,7 +41,7 @@ var Validator = {
         lname.onkeyup = validateLastName;
         postal.onkeyup = validatePostal;
         epost.onkeyup = validateEmail;
-        form.onsubmit = validateForm;
+        form.onclick = validateForm;
 
         
         // Validering för förnamnsfältet
@@ -125,7 +125,7 @@ var Validator = {
             if (!validateName() || !validateLastName() || !validatePostal() || !validateEmail()) {
                 return false;
             }
-        
+            // Skapar modal popupruta
             var div = document.createElement("div");
             div.className = "background";
             var modalDiv = document.createElement("div");
@@ -144,9 +144,6 @@ var Validator = {
                 form.submit();
             };
             
-            buttonNo.onclick = function() {
-                modalDiv.close();
-            };
             return true;
         }     
         
