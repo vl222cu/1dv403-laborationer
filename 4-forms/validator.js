@@ -132,10 +132,29 @@ var Validator = {
             modalDiv.className = "modal";
             var buttonOk = document.createElement("button");
             buttonOk.textContent = "Bekräfta ditt köp";
-            var buttonNo = document.createElement("button");
-            buttonNo.textContent = "Avbryt";
+            var buttonCancel = document.createElement("button");
+            buttonCancel.textContent = "Avbryt";
             
-            modalDiv.appendChild(buttonNo);
+            // Skapar text i popupen för fälten
+            var NameTag = document.createElement("p");
+            NameTag.textContent = "Förnamn:\t" + fname.value;
+            var lastNameTag = document.createElement("p");
+            lastNameTag.textContent = "Efternamn:\t" + lname.value;
+            var postalTag = document.createElement("p");
+            postalTag.textContent = "Postnummer:\t" + postal.value;
+            var emailTag = document.createElement("p");
+            emailTag.textContent = "E-postadress:\t" + epost.value;
+            var priceTag = document.createElement("p");
+            var price = document.getElementById("price");
+            priceTag.textContent = "Prismodell:\t" + price.value;
+            
+            // Lägger till alla p-taggar i modala popupen
+            modalDiv.appendChild(NameTag);
+            modalDiv.appendChild(lastNameTag);
+            modalDiv.appendChild(postalTag);
+            modalDiv.appendChild(emailTag);
+            modalDiv.appendChild(priceTag);
+            modalDiv.appendChild(buttonCancel);
             modalDiv.appendChild(buttonOk);
             div.appendChild(modalDiv);
             document.body.appendChild(div);
