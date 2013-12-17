@@ -22,7 +22,7 @@ label {
     background: -webkit-linear-gradient(top, #DDD 30%, #FFF 100%);
     background: -moz-linear-gradient(top, #DDD 30%, #FFF 100%);
     background: -o-linear-gradient(top, #DDD 30%, #FFF 100%);
-	background: linear-gradient(top, #DDD 30%, #FFF 100%);
+	background: linear-gradient(#DDD 30%, #FFF 100%);
 	-moz-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;  
     -webkit-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;
     box-shadow: rgba(0,0,0, 0.3) 0 0 8px; 
@@ -52,7 +52,7 @@ select {
     background: -webkit-linear-gradient(top, #DDD 30%, #FFF 100%);
     background: -moz-linear-gradient(top, #DDD 30%, #FFF 100%);
     background: -o-linear-gradient(top, #DDD 30%, #FFF 100%);
-	background: linear-gradient(top, #DDD 30%, #FFF 100%);
+	background: linear-gradient(#DDD 30%, #FFF 100%);
 	-moz-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;  
     -webkit-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;
     box-shadow: rgba(0,0,0, 0.3) 0 0 8px; 
@@ -98,7 +98,7 @@ input:hover, input:focus {
 	background: -webkit-linear-gradient(top, #263966 5%, #79bbff 100%);
 	background:-moz-linear-gradient( center top, #263966 5%, #79bbff 100% );
 	background: -o-linear-gradient(top, #263966 5%, #79bbff 100%);
-	background: linear-gradient(top, #263966 5%, #79bbff 100%);
+	background: linear-gradient(#263966 5%, #79bbff 100%);
 }
 
 /*<------------Modala popupens inställningar------------>*/
@@ -117,7 +117,7 @@ input:hover, input:focus {
     background: -webkit-linear-gradient(top, #DDD 30%, #FFF 100%);
     background: -moz-linear-gradient(top, #DDD 30%, #FFF 100%);
     background: -o-linear-gradient(top, #DDD 30%, #FFF 100%);
-	background: linear-gradient(top, #DDD 30%, #FFF 100%);
+	background: linear-gradient(#DDD 30%, #FFF 100%);
 	-moz-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;  
     -webkit-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;
     box-shadow: rgba(0,0,0, 0.3) 0 0 8px; 
@@ -151,7 +151,7 @@ input:hover, input:focus {
 	background: -webkit-linear-gradient(top, #263966 5%, #79bbff 100%);
 	background:-moz-linear-gradient( center top, #263966 5%, #79bbff 100% );
 	background: -o-linear-gradient(top, #263966 5%, #79bbff 100%);
-	background: linear-gradient(top, #263966 5%, #79bbff 100%);
+	background: linear-gradient(#263966 5%, #79bbff 100%);
 }
 
 #btncanc {
@@ -165,8 +165,8 @@ input:hover, input:focus {
 
 .background {
     background-color: black;
-    opacity: 80%;
-    filter:alpha(opacity=90);
+    opacity: 1;
+    filter:Alpha(opacity=90);
     background-color: rgba(0,0,0,0.90);
     width: 100%;
     min-height: 100%;

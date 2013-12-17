@@ -58,7 +58,7 @@ var Validator = {
                 confirmName.textContent = "Detta fält får inte lämnas blankt";
                 return false;
             }
-            if(!forname.match(/^[A-Za-zåäöÅÄÖ*\s\-[A-Za-zåäöÅÄÖ]*$/)) {
+            if(!forname.match(/^[A-Za-zåäöÅÄÖ*-[A-Za-zåäöÅÄÖ]*$/)) {
                 confirmName.classList.remove("valid");
                 confirmName.textContent = "Förnamnet får endast bestå av bokstäver";
                 return false;
@@ -78,7 +78,7 @@ var Validator = {
                 confirmLastName.textContent = "Detta fält får inte lämnas blankt";
                 return false;
             }
-            if(!lastName.match(/^[A-Za-zåäöÅÄÖ*\s\-[A-Za-zåäöÅÄÖ]*$/)) {
+            if(!lastName.match(/^[A-Za-zåäöÅÄÖ*-[A-Za-zåäöÅÄÖ]*$/)) {
                 confirmLastName.classList.remove("valid");
                 confirmLastName.textContent = "Efternamnet får endast bestå av bokstäver";
                 return false;
@@ -92,7 +92,7 @@ var Validator = {
         function validatePostal() {
             var confirmPostal = document.getElementById("postalprompt");
             var postNo = postal.value;
-            var format = /^\d{5}$|^\d{3}[- ]\d{2}$|^[SE]+\d{5}$|^[SE]+\d{3}[- ]\d{2}$|^[SE ]+(\d{3}[- ]\d{2}|\d{5})$/;
+            var format = /^\d{5}$|^\d{3}[- ]\d{2}$|^(SE)+\d{5}$|^(SE)+\d{3}[- ]\d{2}$|^(SE )+(\d{3}[- ]\d{2}|\d{5})$/;
 
             
             if(postNo.length === 0) {
@@ -191,6 +191,13 @@ var Validator = {
             modalDiv.appendChild(buttonOk);
             div.appendChild(modalDiv);
             document.body.appendChild(div);
+            
+            // Stoppar tabfunktionen under tiden modala popupen är igång
+            form.onkeydown= function(e) {
+                if (e.keyCode == 9)  {
+                    e.preventDefault();
+                }
+            };
             
             // Kopplar till händelser för knapparna i modala popupen
             buttonOk.addEventListener("click", function(){form.submit();}, false);
