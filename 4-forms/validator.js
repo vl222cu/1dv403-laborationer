@@ -92,17 +92,22 @@ var Validator = {
         function validatePostal() {
             var confirmPostal = document.getElementById("postalprompt");
             var postNo = postal.value;
+            var format = /^\d{5}$|^\d{3}[- ]\d{2}$|^[SE]+\d{5}$|^[SE]+\d{3}[- ]\d{2}$|^[SE ]+(\d{3}[- ]\d{2}|\d{5})$/;
+
             
             if(postNo.length === 0) {
                 confirmPostal.classList.remove("valid");
                 confirmPostal.textContent = "Postnumret behöver fyllas i";
                 return false;
-            }
-            if(!postNo.match(/^[0-9]{5}$/)) {
+            } 
+            if(!postNo.match(format)) {
                 confirmPostal.classList.remove("valid");
                 confirmPostal.textContent = "Postnumret ska anges i format XXXXX, t.ex. 31223";
                 return false;
             }
+            var replacePostNo = postNo.replace(/(SE)?-?\s?/g,"");
+            var elem = document.getElementById("postal");
+            elem.value = replacePostNo;
             confirmPostal.classList.add("valid");
             confirmPostal.textContent = "Korrekt";
             return true;
@@ -128,7 +133,7 @@ var Validator = {
             confirmEmail.textContent = "Korrekt";
             return true;
         }
-     
+        
         // Funktion för att lägga till spantaggen efter inputtaggen
         function insertAfter(referenceNode, newNode) {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
@@ -141,6 +146,7 @@ var Validator = {
             if (!validateName() || !validateLastName() || !validatePostal() || !validateEmail()) {
                 return false;
             }
+            
             // Skapar modal popupruta
             var div = document.createElement("div");
             div.className = "background";
@@ -174,9 +180,6 @@ var Validator = {
             var price = document.getElementById("price");
             priceTag.textContent = "Prismodell: " + price.value;
             
-            //Hämtar formulärtaggen
-            //var form = document.getElementById("myForm");
-            
             // Lägger till alla p-taggar i modala popupen
             modalDiv.appendChild(title);
             modalDiv.appendChild(NameTag);
@@ -189,6 +192,7 @@ var Validator = {
             div.appendChild(modalDiv);
             document.body.appendChild(div);
             
+            // Kopplar till händelser för knapparna i modala popupen
             buttonOk.addEventListener("click", function(){form.submit();}, false);
             buttonCancel.addEventListener("click", function()
             {window.location='https://c9.io/vl222cu/1dv403-laborationer/workspace/4-forms/index.html';}, false);

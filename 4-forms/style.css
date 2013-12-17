@@ -32,6 +32,18 @@ label {
     font-family: "Verdana", "Arial", sans-serif;
 }
 
+.invalid {
+    color: red;
+}
+
+.valid {
+    color: green;
+}
+
+span {
+    margin-left: 10px;
+}
+
 select {
     width: 150px;
     padding: 5px;  
@@ -163,12 +175,4 @@ input:hover, input:focus {
     top: 0;
     left: 0;
     color: white;
-}
-
-.invalid {
-    color: red;
-}
-
-.valid {
-    color: green;
 }
