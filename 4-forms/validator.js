@@ -34,14 +34,14 @@ var Validator = {
         insertAfter(input, span);
         
         // Hämtar formelementet 
-        var form = document.getElementById("myForm");
+        var button = document.getElementById("button");
         
         // Kopplat händelse till varje element som anropar validering för resp fält
         fname.onkeyup = validateName;
         lname.onkeyup = validateLastName;
         postal.onkeyup = validatePostal;
         epost.onkeyup = validateEmail;
-        form.onclick = validateForm;
+        button.onclick = validateForm;
 
         
         // Validering för förnamnsfältet
@@ -120,7 +120,8 @@ var Validator = {
         referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
         }
         
-        // Anrop vid onsubmit för validering av alla fält innan info skickas till servern
+        // Anrop vid onsubmit för validering av alla fält och bekräftelsepopup
+        // innan info skickas till servern
         function validateForm() {
             if (!validateName() || !validateLastName() || !validatePostal() || !validateEmail()) {
                 return false;
@@ -131,24 +132,38 @@ var Validator = {
             var modalDiv = document.createElement("div");
             modalDiv.className = "modal";
             var buttonOk = document.createElement("button");
+            buttonOk.id = "btnok";
             buttonOk.textContent = "Bekräfta ditt köp";
             var buttonCancel = document.createElement("button");
+            buttonCancel.id = "btncanc";
             buttonCancel.textContent = "Avbryt";
             
-            // Skapar text i popupen för fälten
+            // Skapar textrad i popupen för samtliga fälten
+            var title = document.createElement("h1");
+            title.id = "confirm";
+            title.textContent = "Vänligen bekräfta ditt köp";
             var NameTag = document.createElement("p");
-            NameTag.textContent = "Förnamn:\t" + fname.value;
+            NameTag.id = "fn";
+            NameTag.textContent = "Förnamn: " + fname.value;
             var lastNameTag = document.createElement("p");
-            lastNameTag.textContent = "Efternamn:\t" + lname.value;
+            lastNameTag.id = "ln";
+            lastNameTag.textContent = "Efternamn: " + lname.value;
             var postalTag = document.createElement("p");
-            postalTag.textContent = "Postnummer:\t" + postal.value;
+            postalTag.id = "post";
+            postalTag.textContent = "Postnummer:    " + postal.value;
             var emailTag = document.createElement("p");
-            emailTag.textContent = "E-postadress:\t" + epost.value;
+            emailTag.id = "email";
+            emailTag.textContent = "E-postadress: " + epost.value;
             var priceTag = document.createElement("p");
+            priceTag.id = "prmodel";
             var price = document.getElementById("price");
-            priceTag.textContent = "Prismodell:\t" + price.value;
+            priceTag.textContent = "Prismodell: " + price.value;
+            
+            //Hämtar formulärtaggen
+            var form = document.getElementById("myForm");
             
             // Lägger till alla p-taggar i modala popupen
+            modalDiv.appendChild(title);
             modalDiv.appendChild(NameTag);
             modalDiv.appendChild(lastNameTag);
             modalDiv.appendChild(postalTag);
@@ -159,11 +174,8 @@ var Validator = {
             div.appendChild(modalDiv);
             document.body.appendChild(div);
             
-            buttonOk.onclick = function() {
-                form.submit();
-            };
-            
-            return true;
+            buttonOk.addEventListener("click", function(){form.submit();}, false);
+            buttonCancel.addEventListener("click", function(){window.location='https://c9.io/vl222cu/1dv403-laborationer/workspace/4-forms/index.html';}, false);
         }     
         
     }

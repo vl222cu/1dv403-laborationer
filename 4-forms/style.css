@@ -66,7 +66,7 @@ input:hover, input:focus {
 }
 
 #button {
-    margin-top: 40px;
+    margin-top: 60px;
     padding: 3px;
     font-family: "Verdana", "Arial", sans-serif;
     font-size: 11px;
@@ -84,7 +84,7 @@ input:hover, input:focus {
 	background: linear-gradient(top, #263966 5%, #79bbff 100%);
 }
 
-/* This is the CSS for the modal dialog window */
+/*<------------Modala popupens inställningar------------>*/
 .modal {
     background-color: white;
     color: black;
@@ -96,9 +96,56 @@ input:hover, input:focus {
     right: 500px;
     width: 400px;
     height: 300px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.03, #DDD), color-stop(1, #FFF)); 
+    background: -webkit-linear-gradient(top, #DDD 30%, #FFF 100%);
+    background: -moz-linear-gradient(top, #DDD 30%, #FFF 100%);
+    background: -o-linear-gradient(top, #DDD 30%, #FFF 100%);
+	background: linear-gradient(top, #DDD 30%, #FFF 100%);
+	-moz-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.3) 0 0 8px;
+    box-shadow: rgba(0,0,0, 0.3) 0 0 8px; 
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    border-radius: 5px;
+    font-family: "Verdana", "Arial", sans-serif;
+    font-size: 12px;
 }
 
-/* This gives us the styling for the background */
+.modal h1 {
+    font-size: 20px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+
+.modal button {
+    margin-top: 35px;
+    margin-right: 5px;
+    padding: 3px;
+    font-family: "Verdana", "Arial", sans-serif;
+    font-size: 11px;
+    color: #FFF;
+	-moz-box-shadow: 0 0 4px 0 #777;
+	-webkit-box-shadow: 0 0 4px 0 #777;
+	box-shadow: 0 0 4px 0 #777;
+    -webkit-border-radius: 10px;  
+    -moz-border-radius: 10px;  
+    border-radius: 10px;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #263966), color-stop(1, #79bbff) );
+	background: -webkit-linear-gradient(top, #263966 5%, #79bbff 100%);
+	background:-moz-linear-gradient( center top, #263966 5%, #79bbff 100% );
+	background: -o-linear-gradient(top, #263966 5%, #79bbff 100%);
+	background: linear-gradient(top, #263966 5%, #79bbff 100%);
+}
+
+#btncanc {
+    margin-left: 20px;
+}
+
+#fn, #ln, #post, #email, #prmodel {
+    margin: 20px;
+    font-weight:bold;
+}
+
 .background {
     background-color: black;
     opacity: 80%;
