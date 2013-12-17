@@ -150,8 +150,10 @@ var Validator = {
             // Skapar modal popupruta
             var div = document.createElement("div");
             div.className = "background";
+            div.id = "bground";
             var modalDiv = document.createElement("div");
             modalDiv.className = "modal";
+            modalDiv.id = "modalDiv";
             var buttonOk = document.createElement("button");
             buttonOk.id = "btnok";
             buttonOk.textContent = "Bekräfta ditt köp";
@@ -198,13 +200,19 @@ var Validator = {
                     e.preventDefault();
                 }
             };
-            
-            // Kopplar till händelser för knapparna i modala popupen
-            buttonOk.addEventListener("click", function(){form.submit();}, false);
-            buttonCancel.addEventListener("click", function()
-            {window.location='https://c9.io/vl222cu/1dv403-laborationer/workspace/4-forms/index.html';}, false);
-        }     
         
+            // Kopplar till händelser för knapparna i modala popupen
+            buttonOk.addEventListener("click", function() {
+                form.submit();
+            }, false);
+            
+            buttonCancel.addEventListener("click", function() {
+                var cancelModal = document.getElementById("modalDiv");
+                var cancelbground = document.getElementById("bground");
+                cancelModal.remove();
+                cancelbground.remove();
+            }, false);
+        }     
     }
 };
 window.onload = Validator.init;
