@@ -9,6 +9,7 @@ var Validator = {
         var input = document.getElementById("forname");
         var span = document.createElement("span");
         span.setAttribute("id", "fnameprompt");
+        span.setAttribute("class", "valid invalid");
         insertAfter(input, span);
         fname.focus();
         
@@ -17,6 +18,7 @@ var Validator = {
         input = document.getElementById("lastname");
         span = document.createElement("span");
         span.setAttribute("id", "lnameprompt");
+        span.setAttribute("class", "valid invalid");
         insertAfter(input, span);
         
         // Skapar spantag till postnummersfältet
@@ -24,6 +26,7 @@ var Validator = {
         input = document.getElementById("postal");
         span = document.createElement("span");
         span.setAttribute("id", "postalprompt");
+        span.setAttribute("class", "valid invalid");
         insertAfter(input, span);
         
         // Skapar spantag till epostsfältet
@@ -31,6 +34,7 @@ var Validator = {
         input = document.getElementById("epost");
         span = document.createElement("span");
         span.setAttribute("id", "epostprompt");
+        span.setAttribute("class", "valid invalid");
         insertAfter(input, span);
         
         // Hämtar formelementet 
@@ -43,76 +47,85 @@ var Validator = {
         epost.onkeyup = validateEmail;
         button.onclick = validateForm;
 
-        
         // Validering för förnamnsfältet
         function validateName() {
+            var confirmName = document.getElementById("fnameprompt");
             var forname = fname.value;
             
             if(forname.length === 0) {
-                produceMessage("Detta fält får inte lämnas blankt", "fnameprompt", "red");
+                confirmName.classList.remove("valid");
+                confirmName.textContent = "Detta fält får inte lämnas blankt";
                 return false;
             }
             if(!forname.match(/^[A-Za-zåäöÅÄÖ*\s\-[A-Za-zåäöÅÄÖ]*$/)) {
-                produceMessage("Förnamnet får endast bestå av bokstäver", "fnameprompt", "red");
+                confirmName.classList.remove("valid");
+                confirmName.textContent = "Förnamnet får endast bestå av bokstäver";
                 return false;
             }
-            produceMessage("Korrekt", "fnameprompt", "green");
+            confirmName.classList.add("valid");
+            confirmName.textContent = "Korrekt";
             return true;
         }
         
         // Validering för efternamnsfältet
         function validateLastName() {
+            var confirmLastName = document.getElementById("lnameprompt");
             var lastName = lname.value;
             
             if(lastName.length === 0) {
-                produceMessage("Detta fält får inte lämnas blankt", "lnameprompt", "red");
+                confirmLastName.classList.remove("valid");
+                confirmLastName.textContent = "Detta fält får inte lämnas blankt";
                 return false;
             }
             if(!lastName.match(/^[A-Za-zåäöÅÄÖ*\s\-[A-Za-zåäöÅÄÖ]*$/)) {
-                produceMessage("Efternamnet får endast bestå av bokstäver", "lnameprompt", "red");
+                confirmLastName.classList.remove("valid");
+                confirmLastName.textContent = "Efternamnet får endast bestå av bokstäver";
                 return false;
             }
-            produceMessage("Korrekt", "lnameprompt", "green");
+            confirmLastName.classList.add("valid");
+            confirmLastName.textContent = "Korrekt";
             return true;
         }
         
         // Validering för postnummersfältet
         function validatePostal() {
+            var confirmPostal = document.getElementById("postalprompt");
             var postNo = postal.value;
             
             if(postNo.length === 0) {
-                produceMessage("Postnumret behöver fyllas i", "postalprompt", "red");
+                confirmPostal.classList.remove("valid");
+                confirmPostal.textContent = "Postnumret behöver fyllas i";
                 return false;
             }
             if(!postNo.match(/^[0-9]{5}$/)) {
-                produceMessage("Postnumret ska anges i format XXXXX, t.ex. 31223", "postalprompt", "red");
+                confirmPostal.classList.remove("valid");
+                confirmPostal.textContent = "Postnumret ska anges i format XXXXX, t.ex. 31223";
                 return false;
             }
-            produceMessage("Korrekt", "postalprompt", "green");
+            confirmPostal.classList.add("valid");
+            confirmPostal.textContent = "Korrekt";
             return true;
         }
         
         // Validering för epostsfältet
         function validateEmail() {
+            var confirmEmail = document.getElementById("epostprompt");
             var email = epost.value;
 
             if (email.length === 0) {
-                produceMessage("E-postadressen behöver fyllas i", "epostprompt", "red");
+                confirmEmail.classList.remove("valid");
+                confirmEmail.textContent = "E-postadressen behöver fyllas i";
                 return false;
             }
 
             if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-                produceMessage("E-postadressen är felaktig ifylld", "epostprompt", "red");
+                confirmEmail.classList.remove("valid");
+                confirmEmail.textContent = "E-postadressen är felaktig ifylld";
                 return false;
             }
-            produceMessage("Korrekt", "epostprompt", "green");
+            confirmEmail.classList.add("valid");
+            confirmEmail.textContent = "Korrekt";
             return true;
-        }
-        
-        // Skapar meddelandet vid anrop från resp valideringspost
-        function produceMessage(message, prompt, color) {
-            document.getElementById(prompt).textContent = message;
-            document.getElementById(prompt).style.color = color;
         }
      
         // Funktion för att lägga till spantaggen efter inputtaggen
