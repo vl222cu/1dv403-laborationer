@@ -38,14 +38,15 @@ var Validator = {
         insertAfter(input, span);
         
         // Hämtar formelementet 
-        var button = document.getElementById("button");
+        //var button = document.getElementById("button");
+        var form = document.getElementById("myForm");
         
         // Kopplat händelse till varje element som anropar validering för resp fält
         fname.onkeyup = validateName;
         lname.onkeyup = validateLastName;
         postal.onkeyup = validatePostal;
         epost.onkeyup = validateEmail;
-        button.onclick = validateForm;
+        form.onsubmit = validateForm;
 
         // Validering för förnamnsfältet
         function validateName() {
@@ -135,7 +136,8 @@ var Validator = {
         
         // Anrop vid onsubmit för validering av alla fält och bekräftelsepopup
         // innan info skickas till servern
-        function validateForm() {
+        function validateForm(e) {
+            e.preventDefault();
             if (!validateName() || !validateLastName() || !validatePostal() || !validateEmail()) {
                 return false;
             }
@@ -173,7 +175,7 @@ var Validator = {
             priceTag.textContent = "Prismodell: " + price.value;
             
             //Hämtar formulärtaggen
-            var form = document.getElementById("myForm");
+            //var form = document.getElementById("myForm");
             
             // Lägger till alla p-taggar i modala popupen
             modalDiv.appendChild(title);
@@ -188,7 +190,8 @@ var Validator = {
             document.body.appendChild(div);
             
             buttonOk.addEventListener("click", function(){form.submit();}, false);
-            buttonCancel.addEventListener("click", function(){window.location='https://c9.io/vl222cu/1dv403-laborationer/workspace/4-forms/index.html';}, false);
+            buttonCancel.addEventListener("click", function()
+            {window.location='https://c9.io/vl222cu/1dv403-laborationer/workspace/4-forms/index.html';}, false);
         }     
         
     }
