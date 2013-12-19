@@ -4,6 +4,11 @@ var Validator = {
     
     init : function() {
         
+        // Funktion för att lägga till spantaggen efter inputtaggen
+        function insertAfter(referenceNode, newNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        }
+        
         // Skapar spantagg till förnamnsfältet
         var fname = document.getElementById("forname");
         var input = document.getElementById("forname");
@@ -58,7 +63,7 @@ var Validator = {
                 confirmName.textContent = "Detta fält får inte lämnas blankt";
                 return false;
             }
-            if(!forname.match(/^[A-Za-zåäöÅÄÖ*-[A-Za-zåäöÅÄÖ]*$/)) {
+            if(!forname.match(/^[A-Za-zåäöÅÄÖ*\-A-Za-zåäöÅÄÖ]*$/)) {
                 confirmName.classList.remove("valid");
                 confirmName.textContent = "Förnamnet får endast bestå av bokstäver";
                 return false;
@@ -78,7 +83,7 @@ var Validator = {
                 confirmLastName.textContent = "Detta fält får inte lämnas blankt";
                 return false;
             }
-            if(!lastName.match(/^[A-Za-zåäöÅÄÖ*-[A-Za-zåäöÅÄÖ]*$/)) {
+            if(!lastName.match(/^[A-Za-zåäöÅÄÖ*\-A-Za-zåäöÅÄÖ]*$/)) {
                 confirmLastName.classList.remove("valid");
                 confirmLastName.textContent = "Efternamnet får endast bestå av bokstäver";
                 return false;
@@ -124,7 +129,7 @@ var Validator = {
                 return false;
             }
 
-            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
                 confirmEmail.classList.remove("valid");
                 confirmEmail.textContent = "E-postadressen är felaktig ifylld";
                 return false;
@@ -134,18 +139,22 @@ var Validator = {
             return true;
         }
         
-        // Funktion för att lägga till spantaggen efter inputtaggen
-        function insertAfter(referenceNode, newNode) {
-        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-        }
-        
         // Anrop vid onsubmit för validering av alla fält och bekräftelsepopup
         // innan info skickas till servern
         function validateForm(e) {
             e.preventDefault();
+            
             if (!validateName() || !validateLastName() || !validatePostal() || !validateEmail()) {
                 return false;
             }
+            
+            // Stoppar tabfunktionen under tiden modala popupen är igång
+            document.onkeydown= function(e) {
+    
+                if (e.keyCode === 9)  {
+                    e.preventDefault();
+                }
+            };
             
             // Skapar modal popupruta
             var div = document.createElement("div");
@@ -193,13 +202,6 @@ var Validator = {
             modalDiv.appendChild(buttonOk);
             div.appendChild(modalDiv);
             document.body.appendChild(div);
-            
-            // Stoppar tabfunktionen under tiden modala popupen är igång
-            form.onkeydown= function(e) {
-                if (e.keyCode == 9)  {
-                    e.preventDefault();
-                }
-            };
         
             // Kopplar till händelser för knapparna i modala popupen
             buttonOk.addEventListener("click", function() {
@@ -207,6 +209,10 @@ var Validator = {
             }, false);
             
             buttonCancel.addEventListener("click", function() {
+                // Tar bort tab-spärren
+                document.onkeydown = function(e) { 
+                    return true; 
+                };
                 var cancelModal = document.getElementById("modalDiv");
                 var cancelbground = document.getElementById("bground");
                 cancelModal.remove();
