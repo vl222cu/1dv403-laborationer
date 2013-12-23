@@ -149,7 +149,7 @@ var Validator = {
             }
             
             // Stoppar tabfunktionen under tiden modala popupen är igång
-            document.onkeydown= function(e) {
+            document.onkeydown = function(e) {
     
                 if (e.keyCode === 9)  {
                     e.preventDefault();
