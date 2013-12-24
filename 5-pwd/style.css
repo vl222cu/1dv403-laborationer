@@ -23,7 +23,7 @@ body {
 }
 
 span {
-    color: white;
+    color: #FFF;
 }
 
 a {
@@ -47,5 +47,33 @@ img:hover, a:hover, a:focus {
     position: absolute;
     top: 50px;
     left: 260px;
-    background: #FFF;
+    border-radius: 7px 7px 4px 4px;
+    box-shadow: 0 0 5px black;
+}
+
+.nwtitlebar {
+    background: #2F2F30;
+    color: #FFF;
+    font-family: "tahoma", "verdana", "sans-serif";
+    border-radius: 7px 7px 0 0;
+    padding: 2px 5px 0 5px;
+    height: 50px;
+}
+
+.nwcontent {
+    background: #CCC;
+    padding: 5px;
+    overflow: scroll;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.nwfooter {
+    background: #2F2F30;
+    color: #FFF;
+    border-radius: 0 0 7px 7px;
+    height: 20px;
+    padding: 5px;
+    padding-bottom: 0;
+    overflow-x: hidden;
 }
