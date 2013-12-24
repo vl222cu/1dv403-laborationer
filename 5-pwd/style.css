@@ -42,3 +42,10 @@ img:hover, a:hover, a:focus {
     -o-transform:scale(1.2); 
     transform:scale(1.2);
 }
+
+#newwindow {
+    position: absolute;
+    top: 50px;
+    left: 260px;
+    background: #FFF;
+}
