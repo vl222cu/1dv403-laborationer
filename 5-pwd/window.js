@@ -1,4 +1,3 @@
-// Skapar namespace 
 var VIWD = VIWD || {};
 
 // Windowkonstruktor
