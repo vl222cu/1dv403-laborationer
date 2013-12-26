@@ -9,7 +9,7 @@ VIWD.init = function () {
 };
 VIWD.galleryWindow = function () {
     "use strict";
-    var galleryWindow = new VIWD.Window(450, 600, "Image Viewer", "pics/pic.png");
+    var galleryWindow = new VIWD.ImageViewer();
     galleryWindow.openWindow();
 };
 window.onload = VIWD.init;
