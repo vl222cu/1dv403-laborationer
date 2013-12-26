@@ -6,14 +6,15 @@ VIWD.ImageViewer = function () {
     VIWD.ImageViewer.prototype.getThumbPics();
 };
 
-// Ser till att ImageViewer ärver från superklassen Windows
+// Ser till att ImageViewer ärver från superklassen Window
 VIWD.ImageViewer.prototype = Object.create(VIWD.Window.prototype);
 
 // Ajaxanrop som kommer att returnera JSON-sträng med tumnagelbilder 
 VIWD.ImageViewer.prototype.getThumbPics = function () {
-    var url = "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/";
-    var container = document.getElementsByClassName("nwcontent");
-    new VIWD.AjaxCon(url, function(data) {
+    var container = document.getElementById("test");
+    var ajaxResult = $.ajax({
+        url: "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/"
+    }).done(function(data) {
         container.innerHTML = data;
     });
 };
