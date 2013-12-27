@@ -45,6 +45,7 @@ VIWD.Window.prototype.openWindow = function () {
     // Fönstrets innehåll
     e.content = document.createElement("div");
     e.content.className = "nwcontent";
+    e.content.id = "nwcon";
      
     // Fönstrets footer
     e.footer = document.createElement("div");
