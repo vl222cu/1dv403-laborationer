@@ -50,6 +50,9 @@ VIWD.Window.prototype.openWindow = function () {
     // Fönstrets footer
     e.footer = document.createElement("div");
     e.footer.className = "nwfooter";
+    e.ajaxLoader = document.createElement("img");
+    e.ajaxLoader.setAttribute("src", "pics/ajax-loader.gif");
+    e.ajaxLoader.id = "ajaxloader";
      
     // Lägger till alla element i parent div
     e.closeButton.appendChild(e.closeImg);
@@ -58,9 +61,10 @@ VIWD.Window.prototype.openWindow = function () {
     e.titleBar.appendChild(e.closeButton);
     e.mainContainer.appendChild(e.titleBar);
     e.mainContainer.appendChild(e.content);
+    e.footer.appendChild(e.ajaxLoader);
     e.mainContainer.appendChild(e.footer);
     main.appendChild(e.mainContainer);
-     
+    
     // Kopplar till händelse för stängknappen
     e.closeButton.addEventListener("click", function () {
         main.removeChild(e.mainContainer);

@@ -11,14 +11,20 @@ VIWD.ImageViewer.prototype = Object.create(VIWD.Window.prototype);
 
 // Ajaxanrop som kommer att returnera JSON-sträng med tumnagelbilder 
 VIWD.ImageViewer.prototype.getThumbPics = function () {
+    // Sätter timer på ajaxanropet, en animerad gif-bild visas om anropet 
+    //till servern drar ut på tiden
+    $(document).ready(function() {
+        setTimeout(function() {
+        $('#ajaxloader').show()}, 300);
     $.ajax({
         url: "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/"
     }).done(function(data) {
+        $('#ajaxloader').hide();
         var thumbs = $.parseJSON(data);
         VIWD.ImageViewer.prototype.renderThumbs(thumbs);
     }).fail(function(jqXHR, textStatus) {
         console.log("Läsfel, status: " + textStatus);
-    });
+    }); });
 };
 
 VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
