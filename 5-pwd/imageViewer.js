@@ -28,7 +28,7 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
         contentDiv = document.getElementById("nwcon"),
         size = setSize(thumbs);
     
-    for (var i in thumbs) {
+    for (var i = 0; i < thumbs.length; ++i) {
         // Skapar boxar till tumnaglarna    
         thumbDiv = document.createElement("div");
         thumbDiv.className = "thumbdiv";
@@ -44,8 +44,9 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
         a.appendChild(thumb);
         thumbDiv.appendChild(a);
         contentDiv.appendChild(thumbDiv);
-    }    
-        
+    } 
+    
+    // Tar fram tumnagelns bredd och höjd
     function setSize(thumbs) {
     var width = 0,
         height = 0;
@@ -55,8 +56,8 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
                 width = thumbs[t].thumbWidth;
             }
             
-            if (thumbs[t].thumbheight > height) {
-                height = thumbs[t].thumHeight;
+            if (thumbs[t].thumbHeight > height) {
+                height = thumbs[t].thumbHeight;
             }
         }
         return {
