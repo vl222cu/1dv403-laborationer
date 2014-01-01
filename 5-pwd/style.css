@@ -88,9 +88,10 @@ a {
 .nwcontent {
     background: #CCC;
     padding: 5px;
-    overflow: scroll;
-    min-width: 300px;
     min-height: 300px;
+    max-height: 500px;
+    width: auto;
+    overflow: auto;
 }
 
 .nwfooter {
@@ -100,7 +101,7 @@ a {
     height: 20px;
     padding: 5px;
     padding-bottom: 0;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .thumbdiv {
