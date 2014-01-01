@@ -11,6 +11,7 @@ section {
     font: 15px "tahoma", "verdana", "sans-serif";
     text-align: center;
     color: white;
+    padding: 10px;
 }
 
 .border {
@@ -29,13 +30,14 @@ a {
      text-decoration: none;
 }
 
-#galleryimg {
+#galleryimg,
+#rssimg {
     width: 64px;
     height: 64px;
 }
 
 #galleryimg:hover,
-a:hover, a:focus {
+#rssimg:hover {
     -ms-transform:scale(1.2); 
     -moz-transform:scale(1.2);
     -webkit-transform:scale(1.2); 
@@ -79,6 +81,8 @@ a:hover, a:focus {
     width: 15px;
     height: 15px;
     float: right;
+    margin-top: 6px;
+    margin-right: 6px;
 }
 
 .nwcontent {
