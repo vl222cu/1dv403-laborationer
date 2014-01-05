@@ -1,8 +1,10 @@
 var VIWD = VIWD || {};
-
+// ZIndexräknare
+VIWD.countZIndex = 0;
 // Windowkonstruktor
 VIWD.Window = function (width, height, title, icon) {
     "use strict";
+    var that = this;
     this.width = width;
     this.height = height;
     this.icon = icon;
@@ -13,11 +15,18 @@ VIWD.Window = function (width, height, title, icon) {
     this.positionTop = 0;
     this.positionLeft = 0;
     
+    // Fokus på valt fönster vid mousedown
+    this.element.mainContainer.addEventListener("mousedown", function () {
+        VIWD.countZIndex++;
+        that.element.mainContainer.style.zIndex = VIWD.countZIndex;
+    }, false);
+    
     // Positionering av fönstret
     var i,
         main = document.getElementById("container");
+        
     for (i = 0; i < main.childNodes.length; i++) {
-        if (this.positionTop >= (main.offsetHeight - this.element.mainContainer.offsetHeight - 55)) {
+        if (this.positionTop > (main.offsetHeight - this.element.mainContainer.offsetHeight - 55)) {
             this.positionTop = 20;
         } 
         if (this.positionLeft > (main.offsetWidth - this.element.mainContainer.offsetWidth - 55)) {
@@ -41,7 +50,7 @@ VIWD.Window.prototype.createWindow = function () {
     e.mainContainer.id = "newwindow";
     e.mainContainer.style.width = this.width + "px";
     e.mainContainer.style.height = this.height + "px";
-     
+    e.mainContainer.style.zIndex = VIWD.zIndexCount;
     // Plats för fönstrets namn
     e.titleBar = document.createElement("div");
     e.titleBar.className = "nwtitlebar";
@@ -90,5 +99,5 @@ VIWD.Window.prototype.createWindow = function () {
     e.closeButton.addEventListener("click", function () {
         main.removeChild(e.mainContainer);
     }, false);
-    
 };
+
