@@ -7,12 +7,15 @@ VIWD.Window = function (width, height, title, icon) {
     this.height = height;
     this.icon = icon;
     this.title = title;
-    // Skapar tom objekt för fönsterelementen
-    this.element = {};
-};
+    this.openWindow();
+    this.content = this.element.content;
+    this.footer = this.element.footer;
+},
 
 VIWD.Window.prototype.openWindow = function () {
     "use strict";
+    // Skapar tom objekt för fönsterelementen
+    this.element = {};
     var e = this.element;
     var main = document.getElementById("container");
     // Parent div
@@ -45,14 +48,14 @@ VIWD.Window.prototype.openWindow = function () {
     // Fönstrets innehåll
     e.content = document.createElement("div");
     e.content.className = "nwcontent";
-    e.content.id = "nwcon";
+    //e.content.id = "nwcon";
      
     // Fönstrets footer
     e.footer = document.createElement("div");
     e.footer.className = "nwfooter";
     e.ajaxLoader = document.createElement("img");
     e.ajaxLoader.setAttribute("src", "pics/ajax-loader.gif");
-    e.ajaxLoader.id = "ajaxloader";
+    e.ajaxLoader.className = "ajaxloader";
      
     // Lägger till alla element i parent div
     e.closeButton.appendChild(e.closeImg);
@@ -70,4 +73,3 @@ VIWD.Window.prototype.openWindow = function () {
         main.removeChild(e.mainContainer);
     }, false);
 };
-

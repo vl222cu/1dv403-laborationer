@@ -3,9 +3,9 @@ var VIWD = VIWD || {};
 VIWD.ImageViewer = function () {
     "use strict";
     // Anropar superklassens konstruktor
-    VIWD.Window.call(this, 450, 600, "Image Viewer", "pics/pic.png");
-    VIWD.ImageViewer.prototype.getThumbPics();
-};
+    VIWD.Window.call(this, 435, 500, "Image Viewer", "pics/pic.png");
+    this.getThumbPics();
+},
 
 // Ser till att ImageViewer ärver från superklassen Window
 VIWD.ImageViewer.prototype = Object.create(VIWD.Window.prototype);
@@ -16,18 +16,18 @@ VIWD.ImageViewer.prototype.getThumbPics = function () {
     // Sätter timer på ajaxanropet, en animerad gif-bild visas om anropet 
     //till servern drar ut på tiden
     $(document).ready(function () {
-        setTimeout(function () { $('#ajaxloader').show(); }, 300);
+        setTimeout(function () { $('.ajaxloader').show(); }, 100);
         $.ajax({
             url: "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/"
         }).done(function (data) {
-            $('#ajaxloader').hide();
+            $('.ajaxloader').hide();
             var thumbs = $.parseJSON(data);
             VIWD.ImageViewer.prototype.renderThumbs(thumbs);
         }).fail(function (jqXHR, textStatus) {
             console.log("Läsfel, status: " + textStatus);
         }); 
     });
-};
+},
 
 VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
     "use strict";
@@ -35,7 +35,8 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
         thumb,
         a,
         i,
-        contentDiv = document.getElementById("nwcon"),
+        nodeList = document.getElementsByClassName("nwcontent"),
+        contentDiv = nodeList[nodeList.length-1],
         size = setSize(thumbs);
     
     for (i = 0; i < thumbs.length; ++i) {
