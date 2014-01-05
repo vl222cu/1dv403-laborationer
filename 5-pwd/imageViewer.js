@@ -3,7 +3,7 @@ var VIWD = VIWD || {};
 VIWD.ImageViewer = function () {
     "use strict";
     // Anropar superklassens konstruktor
-    VIWD.Window.call(this, 435, 500, "Image Viewer", "pics/pic.png");
+    VIWD.Window.call(this, 550, 300, "Image Viewer", "pics/pic.png");
     this.getThumbPics();
 },
 

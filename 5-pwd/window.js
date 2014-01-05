@@ -7,12 +7,30 @@ VIWD.Window = function (width, height, title, icon) {
     this.height = height;
     this.icon = icon;
     this.title = title;
-    this.openWindow();
+    this.createWindow();
     this.content = this.element.content;
     this.footer = this.element.footer;
+    this.positionTop = 0;
+    this.positionLeft = 0;
+    
+    // Positionering av fönstret
+    var i,
+        main = document.getElementById("container");
+    for (i = 0; i < main.childNodes.length; i++) {
+        if (this.positionTop >= (main.offsetHeight - this.element.mainContainer.offsetHeight - 55)) {
+            this.positionTop = 20;
+        } 
+        if (this.positionLeft > (main.offsetWidth - this.element.mainContainer.offsetWidth - 55)) {
+            this.positionLeft = 100;
+        } 
+        this.positionTop += 25;
+        this.positionLeft += 25;
+        this.element.mainContainer.style.top = this.positionTop + "px";
+        this.element.mainContainer.style.left = this.positionLeft + "px";
+    }
 },
 
-VIWD.Window.prototype.openWindow = function () {
+VIWD.Window.prototype.createWindow = function () {
     "use strict";
     // Skapar tom objekt för fönsterelementen
     this.element = {};
@@ -72,4 +90,5 @@ VIWD.Window.prototype.openWindow = function () {
     e.closeButton.addEventListener("click", function () {
         main.removeChild(e.mainContainer);
     }, false);
+    
 };

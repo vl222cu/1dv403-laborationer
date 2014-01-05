@@ -48,8 +48,6 @@ a {
 /*<------------Fönstrets inställningar------------->*/
 #newwindow {
     position: absolute;
-    top: 50px;
-    left: 260px;
     border-radius: 7px 7px 4px 4px;
     box-shadow: 0 0 5px black;
 }
