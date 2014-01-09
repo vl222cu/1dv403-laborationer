@@ -20,7 +20,7 @@ VIWD.RssReader.prototype.displayFeed = function () {
         $.ajax({
             url: "http://homepage.lnu.se/staff/tstjo/labbyServer/rssproxy/?url=" + encodeURI("http://www.sf.se/sfmedia/external/rss/news.rss")
         }).done(function (data) {
-            $('.ajaxloader').hide();
+            $('.ajaxloader').remove();
             $('.rsscontent').html(data);
         }).fail(function (jqXHR, textStatus) {
             console.log("Läsfel, status: " + textStatus);

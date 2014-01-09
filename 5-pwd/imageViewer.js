@@ -20,7 +20,7 @@ VIWD.ImageViewer.prototype.getThumbPics = function () {
         $.ajax({
             url: "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/"
         }).done(function (data) {
-            $('.ajaxloader').hide();
+            $('.ajaxloader').remove();
             var thumbs = $.parseJSON(data);
             VIWD.ImageViewer.prototype.renderThumbs(thumbs);
         }).fail(function (jqXHR, textStatus) {
@@ -39,7 +39,7 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
         contentDiv = nodeList[nodeList.length-1],
         size = setSize(thumbs);
     
-    for (i = 0; i < thumbs.length; ++i) {
+    for (i = 0; i < thumbs.length; i++) {
         // Skapar boxar till tumnaglarna    
         thumbDiv = document.createElement("div");
         thumbDiv.className = "thumbdiv";
@@ -51,14 +51,15 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
         a = document.createElement("a");
         a.setAttribute("href", "#");
         thumb.src = thumbs[i].thumbURL;
-    
+        VIWD.ImageViewer.prototype.viewSingleThumb(a, i, thumbs);
+        
         a.appendChild(thumb);
         thumbDiv.appendChild(a);
         contentDiv.appendChild(thumbDiv);
-    } 
+    }
     
     // Tar fram tumnagelns bredd och höjd
-    function setSize(thumbs) {
+    function setSize (thumbs) {
         var width = 0,
             height = 0,
             t;
@@ -75,4 +76,16 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
             height: height
         };
     }
+};
+
+VIWD.ImageViewer.prototype.viewSingleThumb = function (a, i, thumbs) {
+    
+    a.onclick = function () { 
+        var imgWindow = new VIWD.singleImage(thumbs[i].width, thumbs[i].height, i, thumbs);
+        /*var image = document.createElement("img");
+        image.setAttribute("src", thumbs[i].URL);
+        image.setAttribute("width", thumbs.width);
+        image.setAttribute("height", thumbs.height);
+        imgWindow.element.content.appendChild(image);*/
+    };
 };

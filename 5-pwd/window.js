@@ -2,9 +2,11 @@ var VIWD = VIWD || {};
 // ZIndexräknare
 VIWD.countZIndex = 0;
 // Windowkonstruktor
-VIWD.Window = function (width, height, title, icon) {
+VIWD.Window = function (width, height, title, icon, footer) {
     "use strict";
-    var that = this;
+    var that = this,
+        i,
+        main = document.getElementById("container");
     this.width = width;
     this.height = height;
     this.icon = icon;
@@ -22,9 +24,6 @@ VIWD.Window = function (width, height, title, icon) {
     }, false);
     
     // Positionering av fönstret
-    var i,
-        main = document.getElementById("container");
-        
     for (i = 0; i < main.childNodes.length; i++) {
         if (this.positionTop > (main.offsetHeight - this.element.mainContainer.offsetHeight - 55)) {
             this.positionTop = 20;
