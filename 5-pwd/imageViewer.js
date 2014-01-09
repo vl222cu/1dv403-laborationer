@@ -79,13 +79,7 @@ VIWD.ImageViewer.prototype.renderThumbs = function (thumbs) {
 };
 
 VIWD.ImageViewer.prototype.viewSingleThumb = function (a, i, thumbs) {
-    
     a.onclick = function () { 
-        var imgWindow = new VIWD.singleImage(thumbs[i].width, thumbs[i].height, i, thumbs);
-        /*var image = document.createElement("img");
-        image.setAttribute("src", thumbs[i].URL);
-        image.setAttribute("width", thumbs.width);
-        image.setAttribute("height", thumbs.height);
-        imgWindow.element.content.appendChild(image);*/
+        var imgWindow = new VIWD.singleImage(thumbs[i].width + 10, thumbs[i].height + 5, i, thumbs);
     };
 };

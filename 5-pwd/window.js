@@ -16,6 +16,7 @@ VIWD.Window = function (width, height, title, icon, footer) {
     this.footer = this.element.footer;
     this.positionTop = 0;
     this.positionLeft = 0;
+    this.positionBottom = 0;
     
     // Fokus på valt fönster vid mousedown
     this.element.mainContainer.addEventListener("mousedown", function () {
@@ -46,7 +47,7 @@ VIWD.Window.prototype.createWindow = function () {
     var main = document.getElementById("container");
     // Parent div
     e.mainContainer = document.createElement("div");
-    e.mainContainer.id = "newwindow";
+    e.mainContainer.className = "newwindow";
     e.mainContainer.style.width = this.width + "px";
     e.mainContainer.style.height = this.height + "px";
     e.mainContainer.style.zIndex = VIWD.zIndexCount;
