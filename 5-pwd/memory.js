@@ -2,7 +2,6 @@ var VIWD = VIWD || {};
 
 VIWD.Memory = function () {
     "use strict";
-    
     VIWD.Window.call(this, 370, 370, "Memory", "pics/games.png");
     this.play();
     $(document).ready(function () {
@@ -103,7 +102,7 @@ VIWD.Memory.prototype.play = function () {
     }
 }}; 
 
-
+// Randomgeneratorn
 VIWD.Memory.prototype.getPictureArray = function (rows, cols) {
 	var numberOfImages = rows*cols,                                                 
         maxImageNumber = numberOfImages/2,
