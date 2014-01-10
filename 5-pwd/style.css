@@ -21,7 +21,7 @@ section {
     margin-left: 20px;
 }
 
-span {
+.name {
     color: #FFF;
     font-weight:bold;
 }
@@ -163,4 +163,26 @@ a {
 
 .singleimg {
     margin: auto;
+}
+
+/*<--------------inställningar för memoryt-------------->*/
+
+table {
+    border-collapse:collapse;
+    margin: 20px 70px 0 40px;
+}
+
+tr, td {
+    border: none;
+    padding: 10px;
+}
+.wrapper {
+    padding-bottom: 20px;
+    height: 320px;
+}
+
+.text {
+    margin-left: 38px;
+    margin-bottom: 40px;
+    font-family: "Verdana", "Arial", sans-serif;
 }
