@@ -189,21 +189,28 @@ tr, td {
     font-family: "Verdana", "Arial", sans-serif;
 }
 
-/*<--------------inställningar för memoryt-------------->*/
-.audio {
+/*<--------------inställningar för musikspelaren-------------->*/
+audio {
     margin-left: 20px;
+    padding: 3px;
 }
 
 .feelgood {
     font-family: "Happy Monkey", "Arial", sans-serif;
     font-weight: bold;
     color: #29282E;
+    margin-left: 20px;
     text-shadow: 1px 1px 0 rgb(186,61,9);
 }
 
-#trackone {
+#trackone,
+#tracktwo,
+#trackthree,
+#trackfour,
+#trackfive {
     font-family: "Happy Monkey", "Arial", sans-serif;
     font-weight: bold;
     font-size: 12px;
     color: #29282E;
+    margin-left: 20px;
 }
