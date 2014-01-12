@@ -7,7 +7,7 @@ VIWD.Memory = function () {
     $(document).ready(function () {
         $('.ajaxloader').remove();
     });
-},
+};
 
 // Ser till att ImageViewer ärver från superklassen Window
 VIWD.Memory.prototype = Object.create(VIWD.Window.prototype);
@@ -16,9 +16,9 @@ VIWD.Memory.prototype.play = function () {
     // Egenskap för att spara resultatet från den utslumpade getPictureArrayen
     var tiles = [],
     // Egenskap för att hålla så att det endast går att vända två brickor
-        pairs=  [],
+        pairs = [],
         trackTries = 0,
-        trackPairs =0,
+        trackPairs = 0,
         rows = 4,
         cols = 4,
         pic = 0,
@@ -35,30 +35,30 @@ VIWD.Memory.prototype.play = function () {
         wrapper.appendChild(table);
         gameDiv.appendChild(wrapper);
         
-        // Anrop av arrayslumpsmetoden och sparar resultatet i egenskapen tiles
-        tiles = this.getPictureArray(rows, cols);
+    // Anrop av arrayslumpsmetoden och sparar resultatet i egenskapen tiles
+    tiles = this.getPictureArray(rows, cols);
         
-        // Skapar tabell med randomarrayen
-        for(i = 0; i < rows; i++){
-            tr = table.insertRow();
-            for(j = 0; j < cols; j++){
-                td = tr.insertCell();
+    // Skapar tabell med randomarrayen
+    for(i = 0; i < rows; i++){
+        tr = table.insertRow();
+        for(j = 0; j < cols; j++){
+            td = tr.insertCell();
                 
-                // Kapslar in varje bild i en a-länk
-                var image = document.createElement("img");
-                var a = document.createElement("a");
-                a.setAttribute("href", "#");
-                a.id = "startimg";
-                image.setAttribute("src", "pics/0.png");
-                image.alt = "hidden";
-                a.appendChild(image);
-                td.appendChild(a);
+            // Kapslar in varje bild i en a-länk
+            var image = document.createElement("img");
+            var a = document.createElement("a");
+            a.setAttribute("href", "#");
+            a.id = "startimg";
+            image.setAttribute("src", "pics/0.png");
+            image.alt = "hidden";
+            a.appendChild(image);
+            td.appendChild(a);
                 
-                // Anropar onclickmetoden
-                flipTile(pic, a);
-                pic++;
-            }
+            // Anropar onclickmetoden
+            flipTile(pic, a);
+            pic++;
         }
+    }
      // Styr vändning av brickor
     function flipTile (pic, a) {
         a.onclick = function() {

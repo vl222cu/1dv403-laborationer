@@ -214,3 +214,25 @@ audio {
     color: #29282E;
     margin-left: 20px;
 }
+
+#musicplayer {
+    width: 500px;
+    height: 67px;
+    background: #000;
+    padding: 5px;
+    margin: 50px auto;
+}
+
+audio {
+    width: 500px;
+    background: #000;
+    float: left;
+    margin-left: -3px;
+}
+
+canvas {
+    width: 500px;
+    height: 30px;
+    background: #FFF;
+    float: left;
+}
