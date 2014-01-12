@@ -2,7 +2,7 @@ var VIWD = VIWD || {};
 
 VIWD.MusicPlayer = function () {
     "use strict";
-    VIWD.Window.call(this, 600, 300, "Musicplayer", "pics/music.png");
+    VIWD.Window.call(this, 550, 250, "Musicplayer", "pics/music.png");
     this.playMusic();
     $(document).ready(function () {
         $('.ajaxloader').remove();
@@ -15,10 +15,13 @@ VIWD.MusicPlayer.prototype = Object.create(VIWD.Window.prototype);
 VIWD.MusicPlayer.prototype.playMusic = function () {
     // Skapar nödvändiga noder och variabler
     var mainMusicDiv = document.createElement("div"),
+        name = document.createElement("h2"),
+        track = document.createElement("span"),
         musicBox = document.createElement("div"),
         canvas = document.createElement("canvas"),
         nodes = document.getElementsByClassName("nwcontent"),
         desktopDiv = nodes[nodes.length-1],
+        audio,
         canvasContext,
         source,
         context,
@@ -32,15 +35,21 @@ VIWD.MusicPlayer.prototype.playMusic = function () {
     
     // Namnger skapade noder
     mainMusicDiv.id = "musicplayer";
+    name.className = "feelgood";
     musicBox.id = "musicbox";
     canvas.id = "frequencybar";
+    track.id = "track";
+    name.textContent = "Chill tune";
+    track.textContent = "\nTrack. Delerium - Silence ft Sarah McLachlan";
     
     // Skapar audioinstans och sätter audioattribut
-    var audio = new Audio();
+    audio = new Audio();
     audio.setAttribute("src", "music/Delerium.mp3");
     audio.controls = true;
     
     // Lägger till i DOMen
+    desktopDiv.appendChild(name);
+    desktopDiv.appendChild(track);
     desktopDiv.appendChild(mainMusicDiv);
     musicBox.appendChild(audio);
     mainMusicDiv.appendChild(musicBox);
@@ -61,7 +70,7 @@ VIWD.MusicPlayer.prototype.playMusic = function () {
         fbc_array = new Uint8Array(analyser.frequencyBinCount); // Innehåller datan för ljudfrekvensen
         analyser.getByteFrequencyData(fbc_array);
         canvasContext.clearRect(0, 0, canvas.width, canvas.height); // Raderar canvas
-        canvasContext.fillStyle = "#00CCFF";
+        canvasContext.fillStyle = "#FF6F1F";
         bars = 100;
         for (i = 0; i < bars; i++) {
             bar_x = i * 3; // space mellan varje bar
