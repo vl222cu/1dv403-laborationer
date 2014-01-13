@@ -52,7 +52,6 @@ a {
 /*<------------Fönstrets inställningar------------->*/
 .newwindow {
     position: absolute;
-    z-index: 1;
     border-radius: 7px 7px 4px 4px;
     box-shadow: 0 0 5px black;
 }
@@ -92,8 +91,7 @@ a {
     background: #CCC;
     padding: 5px;
     min-height: 250px;
-    max-height: 550px;
-    width: auto;
+    max-height: 500px;
     overflow: auto;
 }
 

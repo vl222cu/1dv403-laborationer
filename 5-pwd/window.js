@@ -14,6 +14,7 @@ VIWD.Window = function (width, height, title, icon, footer) {
     this.createWindow();
     this.content = this.element.content;
     this.footer = this.element.footer;
+    this.element.mainContainer.style.zIndex = VIWD.countZIndex;
     this.positionTop = 0;
     this.positionLeft = 0;
     this.positionBottom = 0;
@@ -50,7 +51,7 @@ VIWD.Window.prototype.createWindow = function () {
     e.mainContainer.className = "newwindow";
     e.mainContainer.style.width = this.width + "px";
     e.mainContainer.style.height = this.height + "px";
-    e.mainContainer.style.zIndex = VIWD.zIndexCount;
+    //e.mainContainer.style.zIndex = VIWD.zIndexCount;
     // Plats för fönstrets namn
     e.titleBar = document.createElement("div");
     e.titleBar.className = "nwtitlebar";

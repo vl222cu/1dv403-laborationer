@@ -6,7 +6,8 @@ VIWD.init = function () {
         rss = document.getElementById("rss"),
         memory = document.getElementById("memory"),
         music = document.getElementById("music");
-        
+
+    
     gallery.addEventListener("click", function () {
         new VIWD.ImageViewer();
     }, false);

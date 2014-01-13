@@ -1,15 +1,15 @@
 var VIWD = VIWD || {};
 
-VIWD.singleImage = function (width, height, i, thumbs) {
+VIWD.SingleImage = function (width, height, i, thumbs) {
     "use strict";
     // Anropar superklassens konstruktor
     VIWD.Window.call(this, width, height, "Image Viewer", "pics/pic.png");
     this.getImg(i, thumbs);
 };
 // Ser till att singleImage ärver från superklassen Window
-VIWD.singleImage.prototype = Object.create(VIWD.Window.prototype);
+VIWD.SingleImage.prototype = Object.create(VIWD.Window.prototype);
 
-VIWD.singleImage.prototype.getImg = function (i, thumbs) {
+VIWD.SingleImage.prototype.getImg = function (i, thumbs) {
     $(document).ready(function () {
         $('.ajaxloader').remove();
         var div = document.createElement("div"),

@@ -19,7 +19,6 @@ VIWD.AjaxCon = function (url, callback) {
         }
     };
     xhr.open("get", url, true);
-    xhr.setRequestHeader('If-Modified-Since', 'Mon, 01 Sep 2007 00:00:00 GMT');
     xhr.send(null);
 };
 VIWD.AjaxCon.prototype.getXHR = function () {
