@@ -8,10 +8,8 @@ VIWD.RssReader = function () {
     rssCont.className = "rsscontent";
     this.displayFeed();
 };
-
 // Ser till att rssReader ärver från superklassen Window
 VIWD.RssReader.prototype = Object.create(VIWD.Window.prototype);
-VIWD.RssReader.prototype.constructor = VIWD.RssReader;
 
 VIWD.RssReader.prototype.displayFeed = function () {
     "use strict";

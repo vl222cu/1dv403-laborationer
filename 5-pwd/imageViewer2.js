@@ -37,7 +37,6 @@ VIWD.ImageViewer.prototype.getThumbPics = function () {
             console.log("Läsfel, status: " + textStatus);
         }); 
     });
-    
     // Tar fram tumnagelns bredd och höjd
     function setSize (thumbs) {
         for (i = 0; i < thumbs.length; i++) {
@@ -77,7 +76,6 @@ VIWD.ImageViewer.prototype.getThumbPics = function () {
         }
     }
 };
-
 // Återger den klickade bilden i nytt fönster
 VIWD.ImageViewer.prototype.viewSingleThumb = function (a, i, thumbs) {
     "use strict";

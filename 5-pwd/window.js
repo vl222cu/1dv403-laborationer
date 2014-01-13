@@ -27,21 +27,20 @@ VIWD.Window = function (width, height, title, icon, footer) {
     
     // Positionering av fönstret
     for (i = 0; i < main.childNodes.length; i++) {
-        if (this.positionTop > (main.offsetHeight - this.element.mainContainer.offsetHeight - 55)) {
-            this.positionTop = 20;
+        if (this.positionTop > (main.offsetHeight - this.element.mainContainer.offsetHeight - 10)) {
+            this.positionTop = 10;
         } 
-        if (this.positionLeft > (main.offsetWidth - this.element.mainContainer.offsetWidth - 55)) {
-            this.positionLeft = 100;
+        if (this.positionLeft > (main.offsetWidth - this.element.mainContainer.offsetWidth - 10)) {
+            this.positionLeft = 80;
         } 
         this.positionTop += 25;
         this.positionLeft += 25;
         this.element.mainContainer.style.top = this.positionTop + "px";
         this.element.mainContainer.style.left = this.positionLeft + "px";
     }
-},
-
+};
+// Skapar fönsterelementen
 VIWD.Window.prototype.createWindow = function () {
-    "use strict";
     // Skapar tom objekt för fönsterelementen
     this.element = {};
     var e = this.element;
@@ -51,21 +50,21 @@ VIWD.Window.prototype.createWindow = function () {
     e.mainContainer.className = "newwindow";
     e.mainContainer.style.width = this.width + "px";
     e.mainContainer.style.height = this.height + "px";
-    //e.mainContainer.style.zIndex = VIWD.zIndexCount;
+    
     // Plats för fönstrets namn
     e.titleBar = document.createElement("div");
     e.titleBar.className = "nwtitlebar";
-     
+    
     // Skapar titelikonen
     e.icon = document.createElement("img");
     e.icon.className = "titleicon";
     e.icon.setAttribute("src", this.icon);
-     
+    
     // Namn på fönstret
     e.titleName = document.createElement("span");
     e.titleName.className = "nwtitlename";
     e.titleName.textContent = this.title;
-     
+    
     // Skapar knapp för att stänga fönstret
     e.closeButton = document.createElement("a");
     e.closeImg = document.createElement("img");
@@ -85,7 +84,7 @@ VIWD.Window.prototype.createWindow = function () {
     e.ajaxLoader.setAttribute("src", "pics/ajax-loader.gif");
     e.ajaxLoader.className = "ajaxloader";
      
-    // Lägger till alla element i parent div
+    // Lägger till i DOMen
     e.closeButton.appendChild(e.closeImg);
     e.titleBar.appendChild(e.icon);
     e.titleBar.appendChild(e.titleName);

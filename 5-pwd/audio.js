@@ -3,10 +3,10 @@ var VIWD = VIWD || {};
 VIWD.MusicPlayer = function () {
     "use strict";
     VIWD.Window.call(this, 550, 250, "Musicplayer", "pics/music.png");
-    this.playMusic();
     $(document).ready(function () {
         $('.ajaxloader').remove();
     });
+    this.playMusic();
 };
 
 // Ser till att ImageViewer ärver från superklassen Window
