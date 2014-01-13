@@ -4,6 +4,7 @@ VIWD.init = function () {
     "use strict";
     var gallery = document.getElementById("gallery"),
         rss = document.getElementById("rss"),
+        rss2 = document.getElementById("rss2"),
         memory = document.getElementById("memory"),
         music = document.getElementById("music");
 
@@ -14,6 +15,10 @@ VIWD.init = function () {
     // Kopplar till händelse för RssReader       
     rss.addEventListener("click", function () {
         new VIWD.RssReader();
+    }, false);
+    // Kopplar till händelse för RssReader       
+    rss2.addEventListener("click", function () {
+        new VIWD.RssReader2();
     }, false);
     // Kopplar till händelse för Memory
     memory.addEventListener("click", function () {
