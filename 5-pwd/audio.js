@@ -13,6 +13,7 @@ VIWD.MusicPlayer = function () {
 VIWD.MusicPlayer.prototype = Object.create(VIWD.Window.prototype);
 
 VIWD.MusicPlayer.prototype.playMusic = function () {
+    "use strict";
     // Skapar nödvändiga noder och variabler
     var mainMusicDiv = document.createElement("div"),
         name = document.createElement("h2"),

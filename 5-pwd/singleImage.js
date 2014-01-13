@@ -13,6 +13,7 @@ VIWD.SingleImage = function (width, height, i, thumbs) {
 VIWD.SingleImage.prototype = Object.create(VIWD.Window.prototype);
 
 VIWD.SingleImage.prototype.getImg = function (i, thumbs) {
+    "use strict";
     // Skapar noder och variabler
     var div = document.createElement("div"),
         image = document.createElement("img"),
