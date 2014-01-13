@@ -3,7 +3,7 @@ var VIWD = VIWD || {};
 VIWD.RssReader2 = function () {
     "use strict";
     // Anropar superklassens konstruktor
-    VIWD.Window.call(this, 500, 400, "RSS Reader", "pics/rss.png");
+    VIWD.Window.call(this, 550, 400, "RSS Reader", "pics/rss.png");
     var rssCont2 = this.element.content.appendChild(document.createElement("div"));
     rssCont2.className = "rsscontent2";
     this.displayFeed2();

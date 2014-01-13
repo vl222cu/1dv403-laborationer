@@ -27,10 +27,10 @@ VIWD.Window = function (width, height, title, icon, footer) {
     
     // Positionering av fönstret
     for (i = 0; i < main.childNodes.length; i++) {
-        if (this.positionTop > (main.offsetHeight - this.element.mainContainer.offsetHeight - 10)) {
+        if (this.positionTop > (main.offsetHeight - this.element.mainContainer.offsetHeight - 50)) {
             this.positionTop = 10;
         } 
-        if (this.positionLeft > (main.offsetWidth - this.element.mainContainer.offsetWidth - 10)) {
+        if (this.positionLeft > (main.offsetWidth - this.element.mainContainer.offsetWidth - 50)) {
             this.positionLeft = 80;
         } 
         this.positionTop += 25;

@@ -7,18 +7,15 @@ html {
   background-size: cover;
 }
 
-section {
-    font: 15px "tahoma", "verdana", "sans-serif";
-    text-align: center;
-    color: white;
-    padding: 10px;
-}
-
 .border {
     width: 70px;
     height: 70px;
     margin-top: 30px;
     margin-left: 20px;
+    font: 15px "tahoma", "verdana", "sans-serif";
+    text-align: center;
+    color: white;
+    padding: 10px;
 }
 
 .name {
@@ -93,7 +90,7 @@ a {
     background: #CCC;
     padding: 5px;
     min-height: 250px;
-    max-height: 500px;
+    max-height: 450px;
     overflow: auto;
 }
 
